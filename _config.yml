@@ -157,7 +157,6 @@ keep_files:
   - .git
 
 plugins:
-  - jekyll-archives
   - jekyll-email-protect
   - jekyll-feed
   - jekyll-link-attributes
