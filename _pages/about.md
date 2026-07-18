@@ -2,33 +2,52 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: >
+  Data & Research Engineer &middot;
+  <a href="https://www.cwi.nl" target="_blank">CWI Amsterdam</a> &middot;
+  MSc Computer Science, VU &times; UvA
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Amsterdam, Netherlands</p>
+    <p>
+      <a href="mailto:officialthingsrahil@gmail.com">officialthingsrahil@gmail.com</a>
+    </p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
-
-announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+news: true
+selected_papers: true
+social: true
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a Data & Research Engineer based in Amsterdam, with an MSc in Computer Science from
+VU Amsterdam and the University of Amsterdam (VU &times; UvA). My work sits at the
+intersection of **privacy-preserving computation**, **knowledge graphs**, and
+**explainable machine learning**.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My thesis introduced **OBFI**, an oblivious protocol for privacy-preserving inference
+over encrypted data — enabling model evaluation without revealing inputs or parameters,
+grounded in secure multi-party computation (SMPC). In parallel, I developed **PACSHAP**,
+a framework that augments SHAP-based feature attribution with knowledge graph structure
+to produce semantically grounded, graph-aware explanations.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I am currently building three research-facing projects that bridge theory and application:
+
+- **[FraudGraph](/projects/fraudgraph)** &mdash; a knowledge-graph-native fraud detection
+  system with agentic investigation workflows, graph neural networks, and SHAP
+  explainability
+- **[TwinFlow](/projects/twinflow)** &mdash; a digital twin framework for supply chain
+  optimization with agentic decision-making and simulation-driven planning
+- **[ContextTrace](/projects/contexttrace)** &mdash; a context-graph prototype for
+  information retrieval and graph-structured reasoning, targeting interdisciplinary ML
+  research
+
+My broader interests include **secure multi-party computation**, **graph-structured
+reasoning**, **agentic AI systems**, and the data engineering infrastructure that makes ML
+trustworthy in production settings.
+
+I am actively looking for **PhD positions** and **research/industry roles** in ML,
+privacy-preserving AI, and knowledge graph systems. Feel free to
+[get in touch](mailto:officialthingsrahil@gmail.com).
