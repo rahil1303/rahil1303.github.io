@@ -9,7 +9,7 @@ subtitle: >
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile_pic.png
   image_circular: true
   more_info: >
     <p>Amsterdam, Netherlands</p>
