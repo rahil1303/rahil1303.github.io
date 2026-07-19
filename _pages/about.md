@@ -47,21 +47,27 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
  
 **Systems and protocol design**
  
-[OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols](/projects/obfi/) — Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation. MSc thesis, CWI Amsterdam.
+[OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols](/projects/obfi/)
+<small>cryptography · oblivious protocols · privacy-preserving computation · distributed systems</small>
  
-[Energy–Performance Trade-offs of Java Garbage Collection Strategies](/projects/java-gc/) — Quantitative empirical study comparing GC strategies under controlled workloads using statistical analysis (ANOVA, Tukey HSD).
+[Energy-Performance Trade-offs of Java Garbage Collection Strategies](/projects/java-gc/)
+<small>sustainability · energy efficiency · systems performance · empirical methods</small>
  
 **Reasoning about trade-offs under constraints**
  
-[Explainable AI Framework for Privacy-Aware Feature Attribution](/projects/pacshap/) — Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization principles.
+[Explainable AI Framework for Privacy-Aware Feature Attribution](/projects/pacshap/)
+<small>explainable AI · GDPR · privacy · knowledge graphs · feature attribution</small>
  
-[Adaptive AI Interaction & Reasoning Platform](/projects/adaptive-ai/) — Multi-model RAG platform supporting structured evaluation of reasoning quality across LLaMA, Qwen, and GPT model families.
+[Adaptive AI Interaction & Reasoning Platform](/projects/adaptive-ai/)
+<small>LLMs · RAG · AI evaluation · multi-model reasoning · NLP</small>
  
 **Sociotechnical impact of systems**
  
-[Auditable Financial Fraud Detection: Graph Features & Agentic Investigation](/projects/fraud-detection/) — End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and a confidence-based human-in-the-loop governance framework.
+[Auditable Financial Fraud Detection: Graph Features & Agentic Investigation](/projects/fraud-detection/)
+<small>financial systems · fraud detection · agentic AI · graph ML · explainability</small>
  
-[Reactivity–Reflectivity Vector Framework](/projects/reactivity/) — Computational framework studying political polarization, media framing, and audience reactivity using large-scale YouTube transcript and comment data.
+[Reactivity-Reflectivity Vector Framework](/projects/reactivity/)
+<small>computational social science · NLP · political polarization · media analysis</small>
 
 
 
