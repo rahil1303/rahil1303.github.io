@@ -43,16 +43,18 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
 **FraudGraph** — fraud detection on 6.36M transactions combining gradient boosting, graph embeddings, autoencoder anomaly signals, and a bounded LLM investigation agent with an escalation policy. [Report](#) · [Code](#)
 -->
 
+
+<hr style="margin: 2rem 0 1.5rem 0; opacity: 0.15;">
 ## Selected Work
  
 <style>
 .sw-group { margin-bottom: 1.8rem; }
 .sw-label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.45;
+  color: var(--global-text-color);
   margin-bottom: 0.5rem;
 }
 .sw-card {
@@ -129,3 +131,4 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
     </div>
   </div>
 </div>
+ 
