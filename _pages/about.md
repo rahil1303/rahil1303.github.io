@@ -25,7 +25,7 @@ profile:
 
 news: true
 selected_papers: false
-social: true
+social: false
 ---
 Hi, I’m Rahil. I think of myself as a **systems researcher**. I am interested in why systems and protocols are shaped the way they are, and what their architectural choices enable, constrain, prevent, or imply.
 
