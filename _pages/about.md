@@ -11,10 +11,16 @@ profile:
   align: right
   image: profile_pic.png
   image_circular: true
-  more_info: >
+    more_info: >
     <p>Amsterdam, Netherlands</p>
-    <p>
-      <a href="mailto:officialthingsrahil@gmail.com">officialthingsrahil@gmail.com</a>
+    <p><a href="mailto:officialthingsrahil@gmail.com">officialthingsrahil@gmail.com</a></p>
+    <br>
+    <p style="display: flex; gap: 0.75rem; font-size: 1.2rem; flex-wrap: wrap;">
+      <a href="mailto:officialthingsrahil@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://github.com/rahil1303" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/rahil-sharma-ba5b6718b/" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://scholar.google.com/citations?user=Tt3ROT8AAAAJ" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar"></i></a>
+      <a href="https://orcid.org/0009-0006-7759-8030" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>
     </p>
 
 news: true
