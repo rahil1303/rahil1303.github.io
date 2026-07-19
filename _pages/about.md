@@ -45,32 +45,87 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
 
 ## Selected Work
  
+<style>
+.sw-group { margin-bottom: 1.8rem; }
+.sw-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 0.5rem;
+}
+.sw-card {
+  border-left: 3px solid var(--global-theme-color);
+  background: rgba(255,255,255,0.04);
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0 6px 6px 0;
+}
+.sw-card a {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.sw-tags {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.sw-tag {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.07);
+  opacity: 0.75;
+  white-space: nowrap;
+}
+</style>
+ 
 <div style="margin-top: 1rem;">
-  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem;">Systems and protocol design</p>
-  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
-    <a href="/projects/obfi/" style="font-weight: 500;">OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols</a><br>
-    <small style="opacity: 0.55;">cryptography &middot; oblivious protocols &middot; privacy-preserving computation &middot; distributed systems</small>
+  <div class="sw-group">
+    <div class="sw-label">Systems and protocol design</div>
+    <div class="sw-card">
+      <a href="/projects/obfi/">OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols</a>
+      <div class="sw-tags">
+        <span class="sw-tag">cryptography</span><span class="sw-tag">oblivious protocols</span><span class="sw-tag">privacy-preserving computation</span><span class="sw-tag">distributed systems</span>
+      </div>
+    </div>
+    <div class="sw-card">
+      <a href="/projects/java-gc/">Energy-Performance Trade-offs of Java Garbage Collection Strategies</a>
+      <div class="sw-tags">
+        <span class="sw-tag">sustainability</span><span class="sw-tag">energy efficiency</span><span class="sw-tag">systems performance</span><span class="sw-tag">empirical methods</span>
+      </div>
+    </div>
   </div>
-  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
-    <a href="/projects/java-gc/" style="font-weight: 500;">Energy-Performance Trade-offs of Java Garbage Collection Strategies</a><br>
-    <small style="opacity: 0.55;">sustainability &middot; energy efficiency &middot; systems performance &middot; empirical methods</small>
+  <div class="sw-group">
+    <div class="sw-label">Reasoning about trade-offs under constraints</div>
+    <div class="sw-card">
+      <a href="/projects/pacshap/">Explainable AI Framework for Privacy-Aware Feature Attribution</a>
+      <div class="sw-tags">
+        <span class="sw-tag">explainable AI</span><span class="sw-tag">GDPR</span><span class="sw-tag">privacy</span><span class="sw-tag">knowledge graphs</span><span class="sw-tag">feature attribution</span>
+      </div>
+    </div>
+    <div class="sw-card">
+      <a href="/projects/adaptive-ai/">Adaptive AI Interaction &amp; Reasoning Platform</a>
+      <div class="sw-tags">
+        <span class="sw-tag">LLMs</span><span class="sw-tag">RAG</span><span class="sw-tag">AI evaluation</span><span class="sw-tag">multi-model reasoning</span><span class="sw-tag">NLP</span>
+      </div>
+    </div>
   </div>
-  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem;">Reasoning about trade-offs under constraints</p>
-  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
-    <a href="/projects/pacshap/" style="font-weight: 500;">Explainable AI Framework for Privacy-Aware Feature Attribution</a><br>
-    <small style="opacity: 0.55;">explainable AI &middot; GDPR &middot; privacy &middot; knowledge graphs &middot; feature attribution</small>
-  </div>
-  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
-    <a href="/projects/adaptive-ai/" style="font-weight: 500;">Adaptive AI Interaction &amp; Reasoning Platform</a><br>
-    <small style="opacity: 0.55;">LLMs &middot; RAG &middot; AI evaluation &middot; multi-model reasoning &middot; NLP</small>
-  </div>
-  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem;">Sociotechnical impact of systems</p>
-  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
-    <a href="/projects/fraud-detection/" style="font-weight: 500;">Auditable Financial Fraud Detection: Graph Features &amp; Agentic Investigation</a><br>
-    <small style="opacity: 0.55;">financial systems &middot; fraud detection &middot; agentic AI &middot; graph ML &middot; explainability</small>
-  </div>
-  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
-    <a href="/projects/reactivity/" style="font-weight: 500;">Reactivity-Reflectivity Vector Framework</a><br>
-    <small style="opacity: 0.55;">computational social science &middot; NLP &middot; political polarization &middot; media analysis</small>
+  <div class="sw-group">
+    <div class="sw-label">Sociotechnical impact of systems</div>
+    <div class="sw-card">
+      <a href="/projects/fraud-detection/">Auditable Financial Fraud Detection: Graph Features &amp; Agentic Investigation</a>
+      <div class="sw-tags">
+        <span class="sw-tag">financial systems</span><span class="sw-tag">fraud detection</span><span class="sw-tag">agentic AI</span><span class="sw-tag">graph ML</span><span class="sw-tag">explainability</span>
+      </div>
+    </div>
+    <div class="sw-card">
+      <a href="/projects/reactivity/">Reactivity-Reflectivity Vector Framework</a>
+      <div class="sw-tags">
+        <span class="sw-tag">computational social science</span><span class="sw-tag">NLP</span><span class="sw-tag">political polarization</span><span class="sw-tag">media analysis</span>
+      </div>
+    </div>
   </div>
 </div>
