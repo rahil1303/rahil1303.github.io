@@ -15,7 +15,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with
   <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: privacy-preserving ML, knowledge graphs, explainable AI, data engineering
+keywords: privacy-preserving systems, cryptography, oblivious protocols, explainable AI, knowledge graphs, fraud detection, agentic AI, LLMs, RAG, NLP, sociotechnical systems, empirical methods, sustainability, trustworthy AI
 lang: en
 icon: ⚛️
 
@@ -313,7 +313,7 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories]
 
-display_tags: ["research", "ml", "privacy", "knowledge-graphs", "explainability"]
+display_tags: ["privacy-preserving-systems", "cryptography", "oblivious-protocols", "explainable-ai", "knowledge-graphs", "fraud-detection", "agentic-ai", "llms", "rag", "nlp", "sociotechnical-systems", "empirical-methods", "sustainability", "trustworthy-ai"]
 display_categories: []
 
 # -----------------------------------------------------------------------------
