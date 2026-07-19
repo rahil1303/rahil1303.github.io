@@ -3,9 +3,9 @@ layout: about
 title: about
 permalink: /
 subtitle: >
-  Data & Research Engineer &middot;
-  <a href="https://www.cwi.nl" target="_blank">CWI Amsterdam</a> &middot;
-  MSc Computer Science, VU &times; UvA
+  Systems Researcher &middot;
+  Privacy-Preserving Systems &middot;
+  Trustworthy AI
 
 profile:
   align: right
