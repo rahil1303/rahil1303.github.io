@@ -313,7 +313,7 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories]
 
-display_tags: ["privacy-preserving-systems", "cryptography", "oblivious-protocols", "explainable-ai", "knowledge-graphs", "fraud-detection", "agentic-ai", "llms", "rag", "nlp", "sociotechnical-systems", "empirical-methods", "sustainability", "trustworthy-ai"]
+display_tags: ["privacy-preserving-systems", "cryptography", "explainable-ai", "knowledge-graphs", "agentic-ai", "trustworthy-ai"]
 display_categories: []
 
 # -----------------------------------------------------------------------------
