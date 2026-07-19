@@ -43,6 +43,26 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
 **FraudGraph** — fraud detection on 6.36M transactions combining gradient boosting, graph embeddings, autoencoder anomaly signals, and a bounded LLM investigation agent with an escalation policy. [Report](#) · [Code](#)
 -->
 
+## Selected Work
+ 
+**Systems and protocol design**
+ 
+[OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols](/projects/obfi/) — Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation. MSc thesis, CWI Amsterdam.
+ 
+[Energy–Performance Trade-offs of Java Garbage Collection Strategies](/projects/java-gc/) — Quantitative empirical study comparing GC strategies under controlled workloads using statistical analysis (ANOVA, Tukey HSD).
+ 
+**Reasoning about trade-offs under constraints**
+ 
+[Explainable AI Framework for Privacy-Aware Feature Attribution](/projects/pacshap/) — Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization principles.
+ 
+[Adaptive AI Interaction & Reasoning Platform](/projects/adaptive-ai/) — Multi-model RAG platform supporting structured evaluation of reasoning quality across LLaMA, Qwen, and GPT model families.
+ 
+**Sociotechnical impact of systems**
+ 
+[Auditable Financial Fraud Detection: Graph Features & Agentic Investigation](/projects/fraud-detection/) — End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and a confidence-based human-in-the-loop governance framework.
+ 
+[Reactivity–Reflectivity Vector Framework](/projects/reactivity/) — Computational framework studying political polarization, media framing, and audience reactivity using large-scale YouTube transcript and comment data.
+
 
 
 
