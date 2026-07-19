@@ -45,30 +45,32 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
 
 ## Selected Work
  
-**Systems and protocol design**
- 
-[OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols](/projects/obfi/)
-<small>cryptography · oblivious protocols · privacy-preserving computation · distributed systems</small>
- 
-[Energy-Performance Trade-offs of Java Garbage Collection Strategies](/projects/java-gc/)
-<small>sustainability · energy efficiency · systems performance · empirical methods</small>
- 
-**Reasoning about trade-offs under constraints**
- 
-[Explainable AI Framework for Privacy-Aware Feature Attribution](/projects/pacshap/)
-<small>explainable AI · GDPR · privacy · knowledge graphs · feature attribution</small>
- 
-[Adaptive AI Interaction & Reasoning Platform](/projects/adaptive-ai/)
-<small>LLMs · RAG · AI evaluation · multi-model reasoning · NLP</small>
- 
-**Sociotechnical impact of systems**
- 
-[Auditable Financial Fraud Detection: Graph Features & Agentic Investigation](/projects/fraud-detection/)
-<small>financial systems · fraud detection · agentic AI · graph ML · explainability</small>
- 
-[Reactivity-Reflectivity Vector Framework](/projects/reactivity/)
-<small>computational social science · NLP · political polarization · media analysis</small>
-
-
-
-
+<div style="margin-top: 1rem;">
+  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem;">Systems and protocol design</p>
+  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
+    <a href="/projects/obfi/" style="font-weight: 500;">OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols</a><br>
+    <small style="opacity: 0.55;">cryptography &middot; oblivious protocols &middot; privacy-preserving computation &middot; distributed systems</small>
+  </div>
+  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
+    <a href="/projects/java-gc/" style="font-weight: 500;">Energy-Performance Trade-offs of Java Garbage Collection Strategies</a><br>
+    <small style="opacity: 0.55;">sustainability &middot; energy efficiency &middot; systems performance &middot; empirical methods</small>
+  </div>
+  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem;">Reasoning about trade-offs under constraints</p>
+  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
+    <a href="/projects/pacshap/" style="font-weight: 500;">Explainable AI Framework for Privacy-Aware Feature Attribution</a><br>
+    <small style="opacity: 0.55;">explainable AI &middot; GDPR &middot; privacy &middot; knowledge graphs &middot; feature attribution</small>
+  </div>
+  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
+    <a href="/projects/adaptive-ai/" style="font-weight: 500;">Adaptive AI Interaction &amp; Reasoning Platform</a><br>
+    <small style="opacity: 0.55;">LLMs &middot; RAG &middot; AI evaluation &middot; multi-model reasoning &middot; NLP</small>
+  </div>
+  <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem;">Sociotechnical impact of systems</p>
+  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
+    <a href="/projects/fraud-detection/" style="font-weight: 500;">Auditable Financial Fraud Detection: Graph Features &amp; Agentic Investigation</a><br>
+    <small style="opacity: 0.55;">financial systems &middot; fraud detection &middot; agentic AI &middot; graph ML &middot; explainability</small>
+  </div>
+  <div style="border-left: 3px solid var(--global-theme-color); padding: 0.6rem 1rem; margin-bottom: 0.6rem; border-radius: 0 4px 4px 0;">
+    <a href="/projects/reactivity/" style="font-weight: 500;">Reactivity-Reflectivity Vector Framework</a><br>
+    <small style="opacity: 0.55;">computational social science &middot; NLP &middot; political polarization &middot; media analysis</small>
+  </div>
+</div>
