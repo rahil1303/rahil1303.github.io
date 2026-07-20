@@ -2,7 +2,6 @@
 layout: page
 title: "Explainable AI Framework for Privacy-Aware Feature Attribution"
 description: Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization
-img: assets/img/projects/pacshap.png
 importance: 3
 category: research
 ---
