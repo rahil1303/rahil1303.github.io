@@ -2,7 +2,6 @@
 layout: page
 title: "OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols"
 description: Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation
-img: assets/img/projects/obfi.png
 importance: 1
 category: research
 ---
