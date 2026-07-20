@@ -2,7 +2,6 @@
 layout: page
 title: "Adaptive AI Interaction & Reasoning Platform"
 description: Multi-model RAG platform supporting structured evaluation of reasoning quality across LLM families
-img: assets/img/projects/adaptive-ai.png
 importance: 4
 category: research
 ---
