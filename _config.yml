@@ -313,7 +313,7 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories]
 
-display_tags: ["privacy-preserving-systems", "cryptography", "explainable-ai", "knowledge-graphs", "agentic-ai", "trustworthy-ai"]
+display_tags: ["privacy preserving systems", "cryptography", "explainable AI", "knowledge graphs", "agentic AI", "trustworthy AI"]
 display_categories: []
 
 # -----------------------------------------------------------------------------
