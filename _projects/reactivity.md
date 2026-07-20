@@ -2,7 +2,6 @@
 layout: page
 title: "Reactivity–Reflectivity Vector Framework"
 description: Computational framework studying political polarization, media framing, and audience reactivity using large-scale YouTube data
-img: assets/img/projects/reactivity.png
 importance: 6
 category: research
 ---
