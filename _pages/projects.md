@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Systems built across privacy-preserving computation, explainable AI, and sociotechnical computing.
 nav: true
 nav_order: 3
 display_categories: [research]
