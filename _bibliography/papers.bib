@@ -1,37 +1,118 @@
 ---
 ---
 
-@mastersthesis{sharma2024obfi,
-  title     = {{OBFI}: Oblivious Protocols for Privacy-Preserving Inference},
+@mastersthesis{sharma2026obfi,
+  title     = {{OBFI}: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols},
   author    = {Sharma, Rahil},
-  year      = {2024},
+  year      = {2026},
   school    = {Vrije Universiteit Amsterdam and University of Amsterdam},
-  abstract  = {This thesis introduces OBFI, a framework for privacy-preserving
-               inference over encrypted data using oblivious protocols. OBFI enables
-               model evaluation without revealing input data or model parameters,
-               grounding the construction in secure multi-party computation (SMPC)
-               and oblivious data structures. We characterise the information-leakage
-               profile of the protocol and evaluate it on real-world classification
-               tasks, demonstrating practical performance at competitive accuracy
-               thresholds.},
-  keywords  = {oblivious computation, privacy-preserving ML, SMPC, cryptographic systems},
+  abstract  = {This thesis introduces and implements Oblivious Bloom Filter Insertion (OBFI),
+               a protocol for constructing encrypted Bloom filters while concealing insertion
+               access patterns from a semi-honest server. We present the first empirical
+               implementation and systematic comparison of OBFI against an alternative
+               privacy-preserving protocol (WS12) for the same problem. Using a distributed
+               Python system built on gRPC, we run a sensitivity study across varying batch
+               sizes and filter capacities, characterising the crossover point at which one
+               protocol becomes preferable to the other and developing a deployment decision
+               framework based on observed performance trends.},
+  keywords  = {oblivious protocols, Bloom filters, privacy-preserving computation, cryptography, distributed systems},
   selected  = {true},
-  note      = {MSc thesis, VU \texttimes{} UvA}
+  note      = {MSc thesis, VU Amsterdam / UvA. Supervised by Dr. M. van Dijk, CWI Amsterdam. Manuscript in preparation.},
+  code      = {https://github.com/rahil1303/obfi-implementation-and-empirical-analysis}
 }
 
-@techreport{sharma2024pacshap,
-  title     = {{PACSHAP}: Knowledge-Graph-Augmented {SHAP} Explanations},
+@unpublished{sharma2026fraud,
+  title     = {Auditable Financial Fraud Detection: Graph Features and Agentic Investigation},
+  author    = {Sharma, Rahil},
+  year      = {2026},
+  abstract  = {We present an end-to-end fraud detection pipeline built on 6.3M+ financial
+               transactions, designed around two principles: detections must be explainable,
+               and the system must know when to defer to human judgement. We engineer
+               graph-based and anomaly-detection features from transaction network structure,
+               validate the graph-based approach through a controlled fraud-ring experiment,
+               and build an AI-assisted investigation workflow that combines model explanations,
+               transaction context, and similar historical cases into structured case rationales.
+               A confidence-based escalation policy automatically resolves clear cases and routes
+               conflicting decisions to human review, maintaining a full audit trail throughout.},
+  keywords  = {fraud detection, knowledge graphs, agentic AI, explainability, human-in-the-loop, financial systems},
+  selected  = {true},
+  note      = {Preprint in preparation.},
+  arxiv     = {upcoming},
+  code      = {https://github.com/rahil1303/auditable-fraud-investigation}
+}
+
+@unpublished{sharma2026adaptive,
+  title     = {Adaptive {AI} Interaction and Reasoning Platform: Multi-Model Evaluation of {RAG} Architectures},
+  author    = {Sharma, Rahil},
+  year      = {2026},
+  abstract  = {We build a full-stack Retrieval-Augmented Generation platform supporting
+               multi-model comparison across LLaMA, Qwen, GPT, and Groq-hosted model families.
+               The platform treats LLM evaluation as a systems problem: retrieval configuration,
+               model selection, and evaluation criteria are independently controllable, enabling
+               isolation of individual design choices on system behaviour. We develop semantic
+               chunking and vector retrieval pipelines with configurable similarity metrics,
+               multi-round critique and evaluation pipelines, and exportable evaluation logs
+               for reproducible comparison across model families.},
+  keywords  = {LLMs, RAG, AI evaluation, multi-model reasoning, NLP, retrieval},
+  selected  = {true},
+  note      = {Preprint in preparation.},
+  arxiv     = {upcoming},
+  code      = {https://github.com/rahil1303/adaptive-llm-reasoning-platform}
+}
+
+@unpublished{sharma2025javagc,
+  title     = {Energy--Performance Trade-offs of {Java} Garbage Collection Strategies},
+  author    = {Sharma, Rahil},
+  year      = {2025},
+  abstract  = {We conduct a quantitative empirical study comparing Serial, Parallel, and G1
+               garbage collectors under controlled Java workloads, investigating trade-offs
+               between energy consumption, throughput, and latency. Measurements use
+               EnergiBridge and Intel RAPL for hardware-level energy profiling. Using a
+               Randomized Complete Block Design experimental setup with automated execution
+               pipelines, we apply ANOVA and Tukey HSD statistical methods to evaluate
+               significance of differences across configurations and compare OpenJDK and
+               Oracle JDK implementations under varying workload conditions.},
+  keywords  = {sustainability, energy efficiency, garbage collection, Java, empirical methods, systems performance},
+  selected  = {true},
+  note      = {Preprint in preparation.},
+  arxiv     = {upcoming},
+  code      = {https://github.com/rahil1303/Energy-Efficiency-of-Java-Garbage-Collection-Strategies}
+}
+
+@unpublished{sharma2025reactivity,
+  title     = {Reactivity--Reflectivity Vector Framework: Computational Analysis of Political Polarization and Media Framing},
+  author    = {Sharma, Rahil},
+  year      = {2025},
+  abstract  = {We design a computational framework for studying political polarization, media
+               framing, and audience reactivity using large-scale YouTube transcript and comment
+               data. The framework operationalizes qualitative concepts — framing, reflectiveness,
+               audience reactivity — into measurable computational features, enabling structured
+               cross-media and cross-topic comparisons. We collect and process data across major
+               political events and news outlets, apply NLP techniques to translate behavioural
+               and engagement patterns into quantitative features, and combine computational
+               analysis with qualitative interpretation to study how narrative structure shapes
+               audience response.},
+  keywords  = {computational social science, NLP, political polarization, media analysis, framing},
+  selected  = {true},
+  note      = {Preprint in preparation.},
+  arxiv     = {upcoming},
+  code      = {https://github.com/rahil1303/Social_Web_Project_Work}
+}
+
+@unpublished{sharma2024pacshap,
+  title     = {Explainable {AI} Framework for Privacy-Aware Feature Attribution},
   author    = {Sharma, Rahil},
   year      = {2024},
-  institution = {Vrije Universiteit Amsterdam},
-  abstract  = {We introduce PACSHAP, a framework that integrates SHAP-based feature
-               attribution with knowledge graph structure to produce semantically
-               grounded, graph-aware model explanations. PACSHAP propagates SHAP
-               values across typed graph edges, weighting attributions by ontological
-               relationships, and surfaces explanations that align with domain
-               knowledge. We evaluate on financial transaction graphs and demonstrate
-               improved explanation coherence and reduced instability over standard
-               SHAP baselines.},
-  keywords  = {explainability, SHAP, knowledge graphs, XAI, fraud detection},
-  selected  = {true}
+  abstract  = {We develop an automated framework for privacy-aware feature selection aligned
+               with GDPR data minimization principles. The framework combines SHAP values
+               with knowledge graphs to provide interpretable, context-aware feature attribution,
+               producing selections that are auditable at the relationship level. We implement
+               PAC-privacy and autoencoder-based encoding mechanisms for secure data handling
+               and build an end-to-end pipeline supporting heterogeneous datasets across
+               numerical and categorical features.},
+  keywords  = {explainable AI, GDPR, privacy, knowledge graphs, SHAP, feature attribution},
+  selected  = {true},
+  note      = {Preprint in preparation.},
+  arxiv     = {upcoming},
+  code      = {https://github.com/rahil1303/PACSHAP-FeatureGraph}
 }
