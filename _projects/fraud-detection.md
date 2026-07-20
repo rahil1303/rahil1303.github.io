@@ -2,7 +2,6 @@
 layout: page
 title: "Auditable Financial Fraud Detection: Graph Features & Agentic Investigation"
 description: End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and human-in-the-loop governance
-img: assets/img/projects/fraud-detection.png
 importance: 5
 category: research
 ---
