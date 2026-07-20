@@ -2,7 +2,6 @@
 layout: page
 title: "Energy–Performance Trade-offs of Java Garbage Collection Strategies"
 description: Quantitative empirical study comparing GC strategies under controlled workloads using statistical analysis
-img: assets/img/projects/java-gc.png
 importance: 2
 category: research
 ---
