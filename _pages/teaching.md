@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Course materials, schedules, and resources for classes taught.
+description: Graduate teaching assistant across VU Amsterdam and University of Twente, 2024–2026.
 nav: true
 nav_order: 6
 calendar: true
