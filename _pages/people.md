@@ -20,11 +20,11 @@ The part nobody tells you about research is where the insight actually happens. 
 
 <div style="display: flex; gap: 1.2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
   <figure style="flex: 1; min-width: 220px; margin: 0;">
-    <img src="/assets/img/personal_volcano.jpg" alt="Sunrise hike on a volcano" style="width: 100%; border-radius: 8px;">
+    <img src="/assets/img/personal_2.jpg" alt="Sunrise hike on a volcano" style="width: 100%; border-radius: 8px;">
     <figcaption style="font-size: 0.8rem; color: var(--global-text-color); opacity: 0.65; margin-top: 0.4rem; text-align: center;">Sunrise hike up a volcano</figcaption>
   </figure>
   <figure style="flex: 1; min-width: 220px; margin: 0;">
-    <img src="/assets/img/personal_venice.jpg" alt="Exploring Venice" style="width: 100%; border-radius: 8px;">
+    <img src="/assets/img/personal_1.jpg" alt="Exploring Venice" style="width: 100%; border-radius: 8px;">
     <figcaption style="font-size: 0.8rem; color: var(--global-text-color); opacity: 0.65; margin-top: 0.4rem; text-align: center;">Exploring Venice</figcaption>
   </figure>
 </div>
