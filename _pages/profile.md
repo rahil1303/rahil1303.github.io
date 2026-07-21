@@ -18,17 +18,6 @@ The part nobody tells you about research is where the insight actually happens. 
 
 ## Outside of all that
 
-<div style="display: flex; gap: 1.2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-  <figure style="flex: 1; min-width: 220px; margin: 0;">
-    <img src="/assets/img/personal_2.jpg" alt="Sunrise hike on a volcano" style="width: 100%; border-radius: 8px;">
-    <figcaption style="font-size: 0.8rem; color: var(--global-text-color); opacity: 0.65; margin-top: 0.4rem; text-align: center;">Sunrise hike up a volcano</figcaption>
-  </figure>
-  <figure style="flex: 1; min-width: 220px; margin: 0;">
-    <img src="/assets/img/personal_1.jpg" alt="Exploring Venice" style="width: 100%; border-radius: 8px;">
-    <figcaption style="font-size: 0.8rem; color: var(--global-text-color); opacity: 0.65; margin-top: 0.4rem; text-align: center;">Exploring Venice</figcaption>
-  </figure>
-</div>
-
 I am a foodie in the most committed sense: I will go out of my way for a good meal, and I have strong opinions about most cuisines. I play a lot of sports and take fitness seriously. I also dance, which surprises people who only know me from a seminar room.
 
 I read about conspiracy theories, not because I believe them, but because of what they reveal about how people construct meaning from incomplete information, which is, when you think about it, not entirely unlike what researchers do.
