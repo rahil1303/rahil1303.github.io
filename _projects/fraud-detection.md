@@ -35,4 +35,4 @@ An end-to-end **fraud detection pipeline** built on 6.3M+ financial transactions
 ## Links
 
 - **GitHub**: [auditable-fraud-investigation](https://github.com/rahil1303/auditable-fraud-investigation)
-- **arXiv**: upcoming
+- **arXiv**: [2607.19266](https://arxiv.org/abs/2607.19266)
