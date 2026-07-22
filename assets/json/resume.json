@@ -174,7 +174,7 @@
     },
     {
       "name": "Auditable Financial Fraud Detection: Graph Features and Agentic Investigation",
-      "publisher": "Preprint in preparation",
+      "publisher": "https://arxiv.org/abs/2607.19266",
       "releaseDate": "2026",
       "url": "https://github.com/rahil1303/auditable-fraud-investigation",
       "summary": "End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and confidence-based human-in-the-loop governance."
