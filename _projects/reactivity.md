@@ -32,5 +32,5 @@ The framework bridges qualitative media studies concepts and computational socia
 
 ## Links
 
-- **GitHub**: [Social_Web_Project_Work](https://github.com/rahil1303/Social_Web_Project_Work)
+- **GitHub**: [Reactivity-Reflectivity-Vector Framework](https://github.com/rahil1303/reactivity-reflectivity-framework)
 - **arXiv**: upcoming
