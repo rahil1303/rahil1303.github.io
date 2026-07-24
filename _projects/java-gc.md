@@ -29,5 +29,5 @@ Identified measurable crossover points between GC strategies depending on worklo
 
 ## Links
 
-- **GitHub**: [Energy-Efficiency-of-Java-Garbage-Collection-Strategies](https://github.com/rahil1303/Energy-Efficiency-of-Java-Garbage-Collection-Strategies)
+- **GitHub**: [Energy-Efficiency-of-Java-Garbage-Collection-Strategies](https://github.com/rahil1303/gc-energy-efficiency)
 - **arXiv**: upcoming
