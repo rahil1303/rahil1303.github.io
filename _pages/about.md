@@ -35,7 +35,7 @@ My interests broadly span three connected areas:
 - **Reasoning about trade-offs under constraints**: particularly where security, privacy, scalability, and efficiency exist in tension rather than in isolation.
 - **Sociotechnical impact of systems**: what happens when technical architecture meets human judgement, organisational practice, and real-world decision-making.
 
-I recently completed an MSc in Computer Science at **Vrije Universiteit Amsterdam and the University of Amsterdam**, specialising in Big Data Engineering. During my thesis research at **CWI Amsterdam**, I introduced and implemented **Oblivious Bloom Filter Insertion (OBFI)** and evaluated its computational and communication trade-offs against an alternative privacy-preserving protocol primitive.
+I recently completed an MSc in Computer Science at **Vrije Universiteit Amsterdam and the University of Amsterdam**, specialising in Big Data Engineering. During my thesis research at **CWI Amsterdam**, I was part of the research team that introduced and implemented **Oblivious Bloom Filter Insertion (OBFI)** and evaluated its computational and communication trade-offs against an alternative privacy-preserving protocol primitive.
 
 I explore research questions by building and evaluating systems. My work has taken me across multiple domains such as **privacy-preserving techniques, cryptographic protocols, explainable AI, NLP, and energy-aware systems**. Across these areas, I keep returning to the tensions between security, scalability, efficiency, and the human contexts in which technical systems operate.
 
