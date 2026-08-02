@@ -1,0 +1,245 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Making Secure Multi-Party Computation Practical -- A Literature Survey | Rahil Sharma </title> <meta name="author" content="Rahil Sharma"> <meta name="description" content="Notes on where the overhead in MPC actually comes from, and four recent lines of work that try to remove it without giving up the security guarantees."> <meta name="keywords" content="privacy-preserving systems, cryptography, oblivious protocols, explainable AI, knowledge graphs, fraud detection, agentic AI, LLMs, RAG, NLP, sociotechnical systems, empirical methods, sustainability, trustworthy AI"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://rahil1303.github.io/blog/2026/efficient-accountable-mpc/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Rahil</span> Sharma </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item "> <a class="nav-link" href="/personal/">personal </a> </li> <li class="nav-item "> <a class="nav-link" href="/personal/">personal </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/books/">bookshelf</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Making Secure Multi-Party Computation Practical -- A Literature Survey</h1> <p class="post-meta"> Created on August 02, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/tag/cryptography"> <i class="fa-solid fa-hashtag fa-sm"></i> cryptography</a>   <a href="/blog/tag/mpc"> <i class="fa-solid fa-hashtag fa-sm"></i> mpc</a>   <a href="/blog/tag/privacy"> <i class="fa-solid fa-hashtag fa-sm"></i> privacy</a>   ·   <a href="/blog/category/research-notes"> <i class="fa-solid fa-tag fa-sm"></i> research-notes</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>I recently went through the interview process for a PhD position in secure multi-party computation, and it did not end in an offer, but it did give me something I did not expect going in: several long, honest conversations with a committee that clearly lived inside this field, about where it is actually headed. My thesis had already put me in the middle of oblivious protocols and the general question of what you can compute without seeing the data, but talking to people who work on MPC full time forced me to be much more specific about which part of the problem I actually find compelling. It is not the existence proofs. It is the gap between what MPC can guarantee in principle and what it costs to actually run, and the handful of research directions that are closing that gap without quietly weakening the guarantee to get there. This post is my attempt to write that down properly, with the papers behind it, rather than leave it as a feeling I had during a few interviews.</p> <p>Secure multi-party computation lets a set of mutually distrusting parties jointly compute a function over their private inputs without revealing those inputs to one another. The guarantee is elegant. The problem, historically, has been that the guarantee is expensive: real deployments of MPC keep running into the same wall, which is that every operation that would be free in plaintext becomes costly once it has to be computed on secret-shared or encrypted data. What follows are notes on four lines of work that each attack a different piece of that overhead, from different directions: approximating the operations themselves, adapting the model that sits on top of them, changing the trust assumption on the parties involved, and separating the guarantee of catching a cheater from the guarantee of everyone agreeing on what happened.</p> <h3 id="where-the-cost-actually-lives">Where the cost actually lives</h3> <p>The first place the overhead shows up is in non-linear functions. Operations such as softmax, GELU, and other activation functions are cheap in plaintext and expensive under MPC, because they cannot be expressed as simple additions and multiplications over secret shares. Two broad strategies have emerged in response. The first replaces the expensive operation with a polynomial approximation that is easier to compute securely, at the cost of some accuracy relative to the exact model. PUMA, a framework for secure Transformer inference, takes this approach: it designs high-quality approximations specifically for GELU and softmax so that a pre-trained model such as LLaMA-7B can be evaluated securely without retraining, and reports roughly a twofold speedup over the prior MPCFormer baseline while preserving accuracy <a class="citation" href="#dong2023puma">(Dong et al., 2023)</a>. MPCFormer itself took a related but distinct route, pairing MPC with knowledge distillation to replace the expensive functions with lighter substitutes learned from the original model rather than fixed polynomial forms <a class="citation" href="#li2022mpcformer">(Li et al., 2023)</a>.</p> <p>The second strategy designs the underlying protocol around the operation, rather than approximating the operation to fit the protocol. Frameworks such as Rabbit built specialized comparison and non-linear evaluation protocols for exactly the operations machine learning workloads need most, rather than relying on general-purpose MPC primitives that were never designed with tensor computation in mind.</p> <h3 id="changing-the-model-instead-of-the-protocol">Changing the model instead of the protocol</h3> <p>A third strategy sidesteps the protocol-versus-approximation trade-off entirely by changing the model during fine-tuning so that it needs less MPC in the first place. This is the approach taken by Marill, which introduces architectural changes during fine-tuning that reduce the number of expensive operations required inside MPC at inference time, either by removing them or by relocating them outside the secure computation boundary, without compromising security <a class="citation" href="#rathee2024marill">(Rathee et al., 2024)</a>. The reported gains are substantial: across the protocols tested, Marill-adapted models run 3.6 to 11.3 times faster in runtime and 2.4 to 6.9 times faster in communication, while typically retaining upward of 90 percent of downstream task performance <a class="citation" href="#rathee2024marill">(Rathee et al., 2024)</a>. The mechanisms behind this include freezing layers so that only the top layers hold sensitive weights that need protecting, repurposing low-rank adaptation to minimize the number of secure multiplications required, and merging attention heads to reduce the operation count directly. The trade-off is explicit: instead of asking the cryptography to work around the model, the model is changed to work with the cryptography, which raises the obvious question of how far this can be pushed before the resulting model stops being the one anyone actually wanted to deploy.</p> <h3 id="loosening-the-trust-assumption">Loosening the trust assumption</h3> <p>A separate branch of the efficiency problem concerns the assumption an MPC protocol makes about its participants. Traditional protocols are typically designed either for an honest majority, which is efficient but assumes something that frequently is not true, or a dishonest majority, which is far more realistic but has historically been far less efficient. Asterisk addresses this gap by introducing a single, semi-honest, non-colluding helper party into an otherwise dishonest-majority protocol <a class="citation" href="#karmakar2024asterisk">(Karmakar et al., 2024)</a>. The helper is not trusted with the parties’ private inputs and does not participate in every step, being invoked only a small, constant number of times regardless of how many regular parties are involved, yet its presence is enough to let the protocol achieve fairness, meaning that either every party learns the output or none do, while scaling to hundreds of participants and outperforming prior dishonest-majority protocols <a class="citation" href="#karmakar2024asterisk">(Karmakar et al., 2024)</a>. The motivating example is dark pools, private exchanges that let institutional investors trade large volumes away from public view: such markets are already organized around a central governing entity, so modeling that entity as a semi-honest helper is a realistic assumption rather than a theoretical convenience. The broader lesson is that many of the deployment settings MPC is meant for, financial markets among them, already have a natural candidate for a helper party, and formalizing that observation buys a significant amount of efficiency.</p> <h3 id="separating-accountability-from-broadcast">Separating accountability from broadcast</h3> <p>The fourth line of work addresses a cost that is easy to overlook because it is not about computation at all: the cost of catching a cheater. Protocols that offer identifiable abort guarantee that if the computation fails, honest parties learn which party caused it, which matters enormously in settings like threshold custody of cryptocurrency, where a party that can force an abort without consequence is a standing liability. The trouble is that constructions with identifiable abort have typically relied on a broadcast channel, and broadcast is frequently the single most expensive component of the entire protocol.</p> <p>Kondi and Ravi’s recent work, which introduces the notion of Provable Identifiable Selective Abort, shows that this dependency is not fundamental <a class="citation" href="#kondi2025pisa">(Kondi &amp; Ravi, 2025)</a>. In the honest-majority setting, their construction achieves cheater identification without a traditional broadcast channel at all, replacing it with a two-round, point-to-point echoing technique. They also prove a general compilation result: any protocol that achieves identifiable abort using r rounds of broadcast can be converted into one that achieves their weaker but still useful guarantee using 2(r+1) point-to-point rounds instead <a class="citation" href="#kondi2025pisa">(Kondi &amp; Ravi, 2025)</a>. As a concrete demonstration, they implement a six-round, honest-majority threshold ECDSA protocol achieving this guarantee that can be deployed using point-to-point communication alone, which matters directly for cryptocurrency wallets and custody solutions where multiple parties must sign off on a transaction and any ambiguity about who failed to cooperate is unacceptable <a class="citation" href="#kondi2025pisa">(Kondi &amp; Ravi, 2025)</a>. This builds on an existing line of results on identifiable and selective abort in the two-round MPC setting, including earlier work by Ravi and coauthors characterizing exactly which security guarantees are achievable under different broadcast patterns <a class="citation" href="#ciampi2022roundoptimal">(Ciampi et al., 2022)</a>.</p> <h3 id="a-common-thread">A common thread</h3> <p>Across all four lines of work, the underlying move is the same: the cost of security under MPC is not being eliminated, it is being relocated to a place where it is cheaper to pay. PUMA and MPCFormer relocate the cost from exact computation to approximation. Marill relocates it from inference time to fine-tuning time. Asterisk relocates it from the collective of distrusting parties to a single semi-honest helper who was arguably present in the deployment setting all along. Kondi and Ravi relocate it from an expensive broadcast primitive to a small number of extra point-to-point rounds. None of these are free lunches. Each introduces a new assumption, a new approximation error, or a new architectural constraint that has to be justified on its own terms and disclosed honestly rather than presented as a strict improvement.</p> <p>That is, more or less, the answer I gave when the committee asked what drew me to this over the other directions in the field. Not the elegance of the impossibility results, though those are real, but the fact that closing the gap between what MPC can prove and what it can actually run requires being honest about exactly what you gave up to get there. It is the same discipline my thesis tried to hold itself to, and it is the part of this literature I most want to keep carrying into the applied work that sits downstream of it.</p> <h3 id="references">References</h3> <h2 class="bibliography">2025</h2> <ol class="bibliography"><li> <div class="row"> <div class="col col-sm-2 abbr"> </div> <div id="kondi2025pisa" class="col-sm-8"> <div class="title">Separating Broadcast from Cheater Identification</div> <div class="author"> Yashvanth Kondi and Divya Ravi </div> <div class="periodical"> 2025 </div> <div class="periodical"> </div> <div class="links"> </div> </div> </div> </li></ol> <h2 class="bibliography">2024</h2> <ol class="bibliography"> <li> <div class="row"> <div class="col col-sm-2 abbr"> </div> <div id="rathee2024marill" class="col-sm-8"> <div class="title">MPC-Minimized Secure LLM Inference</div> <div class="author"> Deevashwer Rathee, Dacheng Li, Ion Stoica, and <span class="more-authors" title="click to view 2 more authors" onclick=" var element=this; element.setAttribute('title', ''); var more_authors_text=element.textContent == '2 more authors' ? 'Hao Zhang, Raluca A. Popa' : '2 more authors'; var cursorPosition=0; var textAdder=setInterval(function(){ element.innerHTML = more_authors_text.substring(0, cursorPosition + 1); if (++cursorPosition == more_authors_text.length){ clearInterval(textAdder); } }, '10'); ">2 more authors</span> </div> <div class="periodical"> <em>arXiv preprint arXiv:2408.03561</em>, 2024 </div> <div class="periodical"> </div> <div class="links"> </div> </div> </div> </li> <li> <div class="row"> <div class="col col-sm-2 abbr"> </div> <div id="karmakar2024asterisk" class="col-sm-8"> <div class="title">Asterisk: Super-fast MPC with a Friend</div> <div class="author"> Banashri Karmakar, Nishat Koti, Arpita Patra, and <span class="more-authors" title="click to view 3 more authors" onclick=" var element=this; element.setAttribute('title', ''); var more_authors_text=element.textContent == '3 more authors' ? 'Sikhar Patranabis, Protik Paul, Divya Ravi' : '3 more authors'; var cursorPosition=0; var textAdder=setInterval(function(){ element.innerHTML = more_authors_text.substring(0, cursorPosition + 1); if (++cursorPosition == more_authors_text.length){ clearInterval(textAdder); } }, '10'); ">3 more authors</span> </div> <div class="periodical"> <em>In IEEE Symposium on Security and Privacy (S&amp;P)</em>, 2024 </div> <div class="periodical"> </div> <div class="links"> </div> </div> </div> </li> </ol> <h2 class="bibliography">2023</h2> <ol class="bibliography"> <li> <div class="row"> <div class="col col-sm-2 abbr"> </div> <div id="dong2023puma" class="col-sm-8"> <div class="title">PUMA: Secure Inference of LLaMA-7B in Five Minutes</div> <div class="author"> Ye Dong, Wen-jie Lu, Yancheng Zheng, and <span class="more-authors" title="click to view 7 more authors" onclick=" var element=this; element.setAttribute('title', ''); var more_authors_text=element.textContent == '7 more authors' ? 'Haoqi Wu, Derun Zhao, Jin Tan, Zhicong Huang, Cheng Hong, Tao Wei, Wenguang Chen' : '7 more authors'; var cursorPosition=0; var textAdder=setInterval(function(){ element.innerHTML = more_authors_text.substring(0, cursorPosition + 1); if (++cursorPosition == more_authors_text.length){ clearInterval(textAdder); } }, '10'); ">7 more authors</span> </div> <div class="periodical"> <em>arXiv preprint arXiv:2307.12533</em>, 2023 </div> <div class="periodical"> </div> <div class="links"> </div> </div> </div> </li> <li> <div class="row"> <div class="col col-sm-2 abbr"> </div> <div id="li2022mpcformer" class="col-sm-8"> <div class="title">MPCFormer: Fast, Performant and Private Transformer Inference with MPC</div> <div class="author"> Dacheng Li, Rulin Shao, Hongyi Wang, and <span class="more-authors" title="click to view 3 more authors" onclick=" var element=this; element.setAttribute('title', ''); var more_authors_text=element.textContent == '3 more authors' ? 'Han Guo, Eric P. Xing, Hao Zhang' : '3 more authors'; var cursorPosition=0; var textAdder=setInterval(function(){ element.innerHTML = more_authors_text.substring(0, cursorPosition + 1); if (++cursorPosition == more_authors_text.length){ clearInterval(textAdder); } }, '10'); ">3 more authors</span> </div> <div class="periodical"> <em>In International Conference on Learning Representations (ICLR)</em>, 2023 </div> <div class="periodical"> </div> <div class="links"> </div> </div> </div> </li> </ol> <h2 class="bibliography">2022</h2> <ol class="bibliography"><li> <div class="row"> <div class="col col-sm-2 abbr"> </div> <div id="ciampi2022roundoptimal" class="col-sm-8"> <div class="title">Round-Optimal Multi-party Computation with Identifiable Abort</div> <div class="author"> Michele Ciampi, Divya Ravi, Luisa Siniscalchi, and <span class="more-authors" title="click to view 1 more author" onclick=" var element=this; element.setAttribute('title', ''); var more_authors_text=element.textContent == '1 more author' ? 'Hendrik Waldner' : '1 more author'; var cursorPosition=0; var textAdder=setInterval(function(){ element.innerHTML = more_authors_text.substring(0, cursorPosition + 1); if (++cursorPosition == more_authors_text.length){ clearInterval(textAdder); } }, '10'); ">1 more author</span> </div> <div class="periodical"> <em>In Advances in Cryptology – EUROCRYPT 2022</em>, 2022 </div> <div class="periodical"> </div> <div class="links"> </div> </div> </div> </li></ol> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Rahil Sharma. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: August 02, 2026. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Preprints and work in progress.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Systems built across privacy-preserving computation, explainable AI, and sociotechnical computing.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-teaching",
+          title: "teaching",
+          description: "Graduate teaching assistant across VU Amsterdam and University of Twente, 2024–2026.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "nav-personal",
+          title: "personal",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/personal/";
+          },
+        },{id: "nav-personal",
+          title: "personal",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/personal/";
+          },
+        },{id: "dropdown-bookshelf",
+              title: "bookshelf",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/books/";
+              },
+            },{id: "dropdown-blog",
+              title: "blog",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-making-secure-multi-party-computation-practical-a-literature-survey",
+        
+          title: "Making Secure Multi-Party Computation Practical -- A Literature Survey",
+        
+        description: "Notes on where the overhead in MPC actually comes from, and four recent lines of work that try to remove it without giving up the security guarantees.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/efficient-accountable-mpc/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-a-long-announcement-with-details",
+          title: 'A long announcement with details',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_2/";
+            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
+          title: 'A simple inline announcement with Markdown emoji! <img class="emoji" title=":sparkles:" alt=":sparkles:" src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png" height="20" width="20"> <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">',
+          description: "",
+          section: "News",},{id: "news-started-building-fraudgraph-amp-mdash-a-knowledge-graph-native-fraud-detection-system-with-agentic-investigation-and-shap-explainability",
+          title: 'Started building **FraudGraph** &amp;mdash; a knowledge-graph-native fraud detection system with agentic investigation and...',
+          description: "",
+          section: "News",},{id: "projects-adaptive-ai-interaction-amp-reasoning-platform",
+          title: 'Adaptive AI Interaction &amp; Reasoning Platform',
+          description: "Multi-model RAG platform supporting structured evaluation of reasoning quality across LLM families",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/adaptive-ai/";
+            },},{id: "projects-auditable-financial-fraud-detection-graph-features-amp-agentic-investigation",
+          title: 'Auditable Financial Fraud Detection: Graph Features &amp; Agentic Investigation',
+          description: "End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and human-in-the-loop governance",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/fraud-detection/";
+            },},{id: "projects-energy-performance-trade-offs-of-java-garbage-collection-strategies",
+          title: 'Energy–Performance Trade-offs of Java Garbage Collection Strategies',
+          description: "Quantitative empirical study comparing GC strategies under controlled workloads using statistical analysis",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/java-gc/";
+            },},{id: "projects-obfi-implementation-empirical-analysis-and-crossover-characterization-of-competing-protocols",
+          title: 'OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols',
+          description: "Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/obfi/";
+            },},{id: "projects-explainable-ai-framework-for-privacy-aware-feature-attribution",
+          title: 'Explainable AI Framework for Privacy-Aware Feature Attribution',
+          description: "Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/pacshap/";
+            },},{id: "projects-reactivity-reflectivity-vector-framework",
+          title: 'Reactivity–Reflectivity Vector Framework',
+          description: "Computational framework studying political polarization, media framing, and audience reactivity using large-scale YouTube data",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/reactivity/";
+            },},{id: "teachings-project-collective-intelligence",
+          title: 'Project Collective Intelligence',
+          description: "Swarm Intelligence & Multi-Agent Systems · VU Amsterdam · 2x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/collective-intelligence/";
+            },},{id: "teachings-creative-technology-programme",
+          title: 'Creative Technology Programme',
+          description: "AI, ML, Programming & Hardware · University of Twente",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/creative-technology/";
+            },},{id: "teachings-fairness-in-data-science",
+          title: 'Fairness in Data Science',
+          description: "CreaTe Module 5 — Humane by Design · University of Twente",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/fairness-data-science/";
+            },},{id: "teachings-learning-machines",
+          title: 'Learning Machines',
+          description: "Robotics & Python Programming · VU Amsterdam · 3x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/learning-machines/";
+            },},{id: "teachings-text-mining-for-ai",
+          title: 'Text Mining for AI',
+          description: "NLP & Information Retrieval · VU Amsterdam · 3x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/text-mining/";
+            },},{id: "teachings-bachelor-thesis-supervision",
+          title: 'Bachelor Thesis Supervision',
+          description: "Software Asset Management · VU Amsterdam",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/thesis-supervision/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-inspire',
+        title: 'Inspire HEP',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://inspirehep.net/authors/1010907", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-custom_social',
+        title: 'Custom_social',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.alberteinstein.com/", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
