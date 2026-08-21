@@ -2,7 +2,7 @@
   "basics": {
     "name": "Rahil Sharma",
     "label": "Systems Researcher",
-    "email": "officialthingsrahil@gmail.com",
+    "email": "rahil.research@gmail.com",
     "phone": "+31615485018",
     "url": "https://rahil1303.github.io",
     "summary": "I think of myself as a systems researcher. I am interested in why systems and protocols are shaped the way they are, and what their architectural choices enable, constrain, prevent, or imply. My work spans three connected areas: systems and protocol design, reasoning about trade-offs under constraints (where security, privacy, scalability, and efficiency pull against each other), and the sociotechnical impact of systems. I bring 5+ years of combined industry, research, and teaching experience across enterprise data systems, privacy-preserving computation, explainable AI, and distributed systems. Currently seeking PhD opportunities in privacy-preserving systems, trustworthy AI, and sociotechnical computing.",
@@ -27,13 +27,14 @@
   "work": [
     {
       "name": "Centrum Wiskunde & Informatica (CWI)",
-      "position": "Research Assistant — CSY Group (Security and Machine Learning)",
+      "position": "Research Assistant \u2014 CSY Group (Security and Machine Learning)",
       "url": "https://www.cwi.nl",
       "startDate": "2025-02",
       "endDate": "2026-06",
       "location": "Amsterdam, Netherlands",
       "summary": "Thesis research and implementation of privacy-preserving cryptographic protocols.",
       "highlights": [
+        "Contributed to developing OBFI (Oblivious Bloom Filter Insertion), which enables batch-updatable searchable symmetric encryption, keyword-search public-key encryption, and outsourced private set intersection.",
         "Built distributed Python and gRPC implementations of competing privacy-preserving cryptographic protocols, incorporating encrypted communication, persistent storage, configurable execution workflows, and systematic correctness testing.",
         "Translated formal theoretical protocol specifications into executable systems, resolving ambiguities between prior research and practical implementation constraints.",
         "Designed and ran a sensitivity study across varying batch sizes and filter capacities to evaluate real-world system behaviour and characterise crossover points between protocols.",
@@ -54,12 +55,13 @@
         "Led lab sessions, guided experiment design, supported debugging of complex software systems, and supervised project development.",
         "Supervised a cohort of 6 bachelor students through the Software Asset Management thesis module at VU Amsterdam.",
         "Also served as TA for the Creative Technology (CreaTe) programme at the University of Twente across AI, programming, and hardware modules.",
-        "Contributed to grading frameworks, evaluation criteria, and assessment materials."
+        "Contributed to grading frameworks, evaluation criteria, and assessment materials.",
+        "Taught Text Mining for AI (3 editions), Learning Machines Robotics (3 editions), and Project Collective Intelligence (2 editions) at VU Amsterdam, and Fairness in Data Science (6 modules) within CreaTe Module 5 (Humane by Design) at the University of Twente."
       ]
     },
     {
       "name": "Precisely",
-      "position": "Software Support Engineer I — Data Integration",
+      "position": "Software Support Engineer I \u2014 Data Integration",
       "url": "https://www.precisely.com",
       "startDate": "2022-01",
       "endDate": "2024-08",
@@ -80,7 +82,7 @@
     {
       "institution": "Vrije Universiteit Amsterdam & University of Amsterdam",
       "url": "https://www.vu.nl",
-      "area": "Computer Science — Big Data Engineering",
+      "area": "Computer Science \u2014 Big Data Engineering",
       "studyType": "MSc",
       "startDate": "2024-09",
       "endDate": "2026-06",
@@ -98,7 +100,7 @@
     {
       "institution": "International Institute of Information Technology, Bangalore",
       "url": "https://www.iiitb.ac.in",
-      "area": "Software Development — Full Stack",
+      "area": "Software Development \u2014 Full Stack",
       "studyType": "Executive PG Certificate",
       "startDate": "2022-08",
       "endDate": "2023-10",
@@ -124,17 +126,17 @@
   ],
   "awards": [
     {
-      "title": "Best Teaching Assistant Nomination — Faculty of Science",
+      "title": "Best Teaching Assistant Nomination \u2014 Faculty of Science",
       "date": "2026",
       "awarder": "Vrije Universiteit Amsterdam"
     },
     {
-      "title": "Reviewer — AMCIS 2025",
+      "title": "Reviewer \u2014 AMCIS 2025",
       "date": "2025",
       "awarder": "Americas Conference on Information Systems (AMCIS)"
     },
     {
-      "title": "Winner — AGBI Health-Tech Grand Challenge",
+      "title": "Winner \u2014 AGBI Health-Tech Grand Challenge",
       "date": "2022",
       "awarder": "NITI Aayog, Government of India"
     },
@@ -144,12 +146,12 @@
       "awarder": "Precisely"
     },
     {
-      "title": "Top-2 Finalist — TechBharat National Hackathon",
+      "title": "Top-2 Finalist \u2014 TechBharat National Hackathon",
       "date": "2021",
       "awarder": "TechBharat, supported by Ministry of Education, Government of India"
     },
     {
-      "title": "Top 10 — IBM Reimagine Future Hackathon",
+      "title": "Top 10 \u2014 IBM Reimagine Future Hackathon",
       "date": "2021",
       "awarder": "IBM (38,000+ registered participants)"
     },
@@ -159,7 +161,7 @@
       "awarder": "Harvard Project for Asian and International Relations"
     },
     {
-      "title": "French Language Olympiad — Bronze Medalist",
+      "title": "French Language Olympiad \u2014 Bronze Medalist",
       "date": "2018",
       "awarder": "French Embassy of India / International French Language Olympiad"
     }
@@ -169,8 +171,8 @@
       "name": "OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols",
       "publisher": "MSc Thesis, VU Amsterdam / UvA",
       "releaseDate": "2026",
-      "url": "https://github.com/rahil1303/obfi-implementation-and-empirical-analysis",
-      "summary": "First empirical implementation and comparison of two cryptographic protocols for oblivious Bloom filter insertion. Supervised by Dr. M. van Dijk, CWI Amsterdam. Manuscript in preparation."
+      "url": "https://doi.org/10.5281/zenodo.22019435",
+      "summary": "First empirical implementation and comparison of two cryptographic protocols for oblivious Bloom filter insertion. Supervised by Dr. M. van Dijk, CWI Amsterdam. Published on Zenodo; companion library pyobfi available on PyPI. Code: https://github.com/rahil1303/obfi-implementation-and-empirical-analysis"
     },
     {
       "name": "Auditable Financial Fraud Detection: Graph Features and Agentic Investigation",
@@ -178,85 +180,237 @@
       "releaseDate": "2026",
       "url": "https://github.com/rahil1303/auditable-fraud-investigation",
       "summary": "End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and confidence-based human-in-the-loop governance."
+    },
+    {
+      "name": "Garbage Collection and Energy Consumption in Java: A Controlled Study Across Workloads and JDKs",
+      "publisher": "https://arxiv.org/abs/2608.19520",
+      "releaseDate": "2025",
+      "url": "https://github.com/rahil1303/gc-energy-efficiency",
+      "summary": "Controlled empirical comparison of Serial, Parallel, and G1 garbage collectors across OpenJDK and Oracle JDK, using RAPL-based energy profiling and ANOVA/Tukey HSD analysis."
     }
   ],
   "skills": [
     {
       "name": "Programming & Software Engineering",
-      "keywords": ["Python", "Java", "SQL", "JavaScript (Node.js)", "Bash", "gRPC", "REST APIs", "Unit Testing", "FastAPI", "React", "Streamlit"]
+      "keywords": [
+        "Python",
+        "Java",
+        "SQL",
+        "JavaScript (Node.js)",
+        "Bash",
+        "gRPC",
+        "REST APIs",
+        "Unit Testing",
+        "FastAPI",
+        "React",
+        "Streamlit"
+      ]
     },
     {
       "name": "Data Engineering",
-      "keywords": ["ETL/ELT", "Change Data Capture", "Batch & Real-Time Pipelines", "Data Modelling", "Source-to-Target Mapping", "Data Quality", "Reconciliation", "dbt", "Apache Spark", "PySpark", "Kafka", "Power BI", "Kubernetes", "Databricks", "Snowflake", "Hadoop", "Hive", "HDFS"]
+      "keywords": [
+        "ETL/ELT",
+        "Change Data Capture",
+        "Batch & Real-Time Pipelines",
+        "Data Modelling",
+        "Source-to-Target Mapping",
+        "Data Quality",
+        "Reconciliation",
+        "dbt",
+        "Apache Spark",
+        "PySpark",
+        "Kafka",
+        "Power BI",
+        "Kubernetes",
+        "Databricks",
+        "Snowflake",
+        "Hadoop",
+        "Hive",
+        "HDFS"
+      ]
     },
     {
       "name": "Cloud & Infrastructure",
-      "keywords": ["Microsoft Azure", "Azure Databricks", "Azure Data Factory", "Azure Synapse Analytics", "Azure Functions", "Azure Key Vault", "Terraform", "Infrastructure as Code", "Azure DevOps", "AWS", "GCP", "BigQuery", "IAM", "RBAC"]
+      "keywords": [
+        "Microsoft Azure",
+        "Azure Databricks",
+        "Azure Data Factory",
+        "Azure Synapse Analytics",
+        "Azure Functions",
+        "Azure Key Vault",
+        "Terraform",
+        "Infrastructure as Code",
+        "Azure DevOps",
+        "AWS",
+        "GCP",
+        "BigQuery",
+        "IAM",
+        "RBAC"
+      ]
     },
     {
       "name": "Machine Learning",
-      "keywords": ["Scikit-learn", "PyTorch", "TensorFlow", "XGBoost", "LightGBM", "Supervised Learning", "Anomaly Detection", "Model Evaluation"]
+      "keywords": [
+        "Scikit-learn",
+        "PyTorch",
+        "TensorFlow",
+        "XGBoost",
+        "LightGBM",
+        "Supervised Learning",
+        "Anomaly Detection",
+        "Model Evaluation"
+      ]
     },
     {
       "name": "Databases & Enterprise Systems",
-      "keywords": ["PostgreSQL", "MySQL", "MS SQL Server", "Oracle", "IBM i / AS400", "SQLite"]
+      "keywords": [
+        "PostgreSQL",
+        "MySQL",
+        "MS SQL Server",
+        "Oracle",
+        "IBM i / AS400",
+        "SQLite"
+      ]
     },
     {
       "name": "MLOps & ML Platforms",
-      "keywords": ["Feature Stores", "Online/Offline Feature Pipelines", "Model Training and Deployment", "Model Registry", "Experiment Tracking", "Model Monitoring", "Drift Detection", "Batch and Real-Time Inference", "Reproducible ML Pipelines"]
+      "keywords": [
+        "Feature Stores",
+        "Online/Offline Feature Pipelines",
+        "Model Training and Deployment",
+        "Model Registry",
+        "Experiment Tracking",
+        "Model Monitoring",
+        "Drift Detection",
+        "Batch and Real-Time Inference",
+        "Reproducible ML Pipelines"
+      ]
     },
     {
       "name": "AI & Agentic Systems",
-      "keywords": ["RAG Services", "Vector Retrieval", "Semantic Chunking", "Embedding Pipelines", "Tool-Using Agents", "Agentic Workflows", "Multi-Model Evaluation", "Model Routing", "Automated AI Evaluation", "MCP Concepts"]
+      "keywords": [
+        "RAG Services",
+        "Vector Retrieval",
+        "Semantic Chunking",
+        "Embedding Pipelines",
+        "Tool-Using Agents",
+        "Agentic Workflows",
+        "Multi-Model Evaluation",
+        "Model Routing",
+        "Automated AI Evaluation",
+        "MCP Concepts"
+      ]
     },
     {
       "name": "Security & Privacy",
-      "keywords": ["Cryptography", "Oblivious Data Structures", "Privacy-Preserving Computation", "SHAP", "Explainability", "GDPR Compliance", "Knowledge Graphs"]
+      "keywords": [
+        "Cryptography",
+        "Oblivious Data Structures",
+        "Privacy-Preserving Computation",
+        "SHAP",
+        "Explainability",
+        "GDPR Compliance",
+        "Knowledge Graphs"
+      ]
     },
     {
       "name": "Operations",
-      "keywords": ["Monitoring", "Alerting", "Production Support", "Performance Tuning", "Root-Cause Analysis", "Technical Documentation"]
+      "keywords": [
+        "Monitoring",
+        "Alerting",
+        "Production Support",
+        "Performance Tuning",
+        "Root-Cause Analysis",
+        "Technical Documentation"
+      ]
     },
     {
       "name": "Engineering Practices",
-      "keywords": ["Git", "GitHub", "Azure DevOps", "CI/CD Workflows", "Jira", "Testing", "Experimental Design", "Statistical Analysis", "LaTeX"]
+      "keywords": [
+        "Git",
+        "GitHub",
+        "Azure DevOps",
+        "CI/CD Workflows",
+        "Jira",
+        "Testing",
+        "Experimental Design",
+        "Statistical Analysis",
+        "LaTeX"
+      ]
     }
   ],
   "languages": [
-    { "language": "English", "fluency": "Fluent" },
-    { "language": "Dutch", "fluency": "A2" },
-    { "language": "French", "fluency": "A2" }
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Dutch",
+      "fluency": "A2"
+    },
+    {
+      "language": "French",
+      "fluency": "A2"
+    }
   ],
   "interests": [
     {
       "name": "Research Interests",
       "keywords": [
         "Privacy-preserving systems",
-        "Trustworthy AI",
-        "Oblivious computation",
-        "Explainability and accountability",
+        "Applied cryptography",
+        "Trustworthy & explainable AI",
         "Sociotechnical computing",
-        "Intelligent data systems",
-        "Knowledge graphs",
         "Empirical systems evaluation"
       ]
     }
   ],
   "certificates": [
-    { "name": "AWS Solutions Architect Associate", "issuer": "Amazon Web Services" },
-    { "name": "Azure Data Engineer Associate", "issuer": "Microsoft" },
-    { "name": "Snowflake SnowPro Core", "issuer": "Snowflake" },
-    { "name": "Databricks Lakehouse Data Engineer", "issuer": "Databricks" },
-    { "name": "Confluent Kafka Developer", "issuer": "Confluent" },
-    { "name": "Google Cloud AI Essentials", "issuer": "Google Cloud" },
-    { "name": "GitHub Foundations (GH-900)", "issuer": "GitHub" },
-    { "name": "GitHub Copilot (GH-300)", "issuer": "GitHub" }
+    {
+      "name": "AWS Solutions Architect Associate",
+      "issuer": "Amazon Web Services"
+    },
+    {
+      "name": "Azure Data Engineer Associate",
+      "issuer": "Microsoft"
+    },
+    {
+      "name": "Snowflake SnowPro Core",
+      "issuer": "Snowflake"
+    },
+    {
+      "name": "Databricks Lakehouse Data Engineer",
+      "issuer": "Databricks"
+    },
+    {
+      "name": "Confluent Kafka Developer",
+      "issuer": "Confluent"
+    },
+    {
+      "name": "Google Cloud AI Essentials",
+      "issuer": "Google Cloud"
+    },
+    {
+      "name": "GitHub Foundations (GH-900)",
+      "issuer": "GitHub"
+    },
+    {
+      "name": "GitHub Copilot (GH-300)",
+      "issuer": "GitHub"
+    }
   ],
   "projects": [
     {
       "name": "OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols",
       "summary": "Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation. MSc thesis, CWI Amsterdam.",
-      "url": "https://rahil1303.github.io/projects/obfi/"
+      "url": "https://rahil1303.github.io/projects/obfi/",
+      "highlights": [
+        "Built a distributed client-server system in Python (gRPC, encryption, persistence) to implement and compare two cryptographic protocols.",
+        "Translated formal theoretical protocol specifications into executable systems, resolving ambiguities in prior research.",
+        "Designed and ran experiments across varying batch sizes and filter capacities to evaluate real-world system behavior for a sensitivity study.",
+        "Developed a decision framework for selecting between protocols based on deployment parameters and observed performance trends.",
+        "Ensured correctness and consistency through systematic testing across configurations."
+      ]
     },
     {
       "name": "Auditable Financial Fraud Detection: Graph Features & Agentic Investigation",
@@ -266,22 +420,49 @@
     {
       "name": "Explainable AI Framework for Privacy-Aware Feature Attribution",
       "summary": "Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization principles.",
-      "url": "https://rahil1303.github.io/projects/pacshap/"
+      "url": "https://rahil1303.github.io/projects/pacshap/",
+      "highlights": [
+        "Developed a privacy-preserving feature selection framework aligned with GDPR data minimization principles.",
+        "Combined SHAP values with knowledge graphs for interpretable and context-aware feature attribution.",
+        "Implemented privacy-preserving mechanisms (PAC-privacy, autoencoder-based encoding) for secure data handling.",
+        "Built an automated pipeline supporting numerical and categorical data for feature selection.",
+        "Applied ML/NLP techniques (transformers, knowledge graph APIs) to evaluate feature importance and model behaviour."
+      ]
     },
     {
       "name": "Adaptive AI Interaction & Reasoning Platform",
       "summary": "Multi-model RAG platform supporting structured evaluation of reasoning quality across LLaMA, Qwen, and GPT model families.",
-      "url": "https://rahil1303.github.io/projects/adaptive-ai/"
+      "url": "https://rahil1303.github.io/projects/adaptive-ai/",
+      "highlights": [
+        "Built a full-stack RAG application supporting multi-model comparison across LLaMA, Qwen, GPT, and Groq-hosted models.",
+        "Designed semantic chunking and vector retrieval pipelines with configurable similarity metrics and ranked context inspection.",
+        "Developed multi-round critique and evaluation pipelines to analyse answer quality, reasoning consistency, and model behaviour.",
+        "Implemented contextual highlighting, automated insight generation, side-by-side response comparison, and exportable evaluation logs."
+      ]
     },
     {
-      "name": "Energy-Performance Trade-offs of Java Garbage Collection Strategies",
+      "name": "Garbage Collection and Energy Consumption in Java: A Controlled Study Across Workloads and JDKs",
       "summary": "Quantitative empirical study comparing GC strategies under controlled workloads using ANOVA and Tukey HSD statistical analysis.",
-      "url": "https://rahil1303.github.io/projects/java-gc/"
+      "url": "https://rahil1303.github.io/projects/java-gc/",
+      "highlights": [
+        "Conducted a quantitative empirical study comparing Serial, Parallel, and G1 garbage collectors under controlled Java workloads using EnergiBridge and Intel RAPL.",
+        "Designed an RCBD-based experimental setup with automated execution and data collection pipelines built in Python.",
+        "Applied statistical methods (ANOVA and Tukey HSD) to evaluate energy efficiency and runtime trade-offs across configurations.",
+        "Compared OpenJDK and Oracle JDK implementations to measure performance differences under varying workload conditions.",
+        "Used quantitative analysis to identify system-level trade-offs between throughput, latency, and energy consumption."
+      ]
     },
     {
       "name": "Reactivity-Reflectivity Vector Framework",
       "summary": "Computational framework studying political polarization and media framing using large-scale YouTube transcript and comment data.",
-      "url": "https://rahil1303.github.io/projects/reactivity/"
+      "url": "https://rahil1303.github.io/projects/reactivity/",
+      "highlights": [
+        "Designed a framework to study political polarization using qualitative concepts such as framing, reflectiveness, and audience reactivity.",
+        "Collected and analyzed large-scale YouTube transcript and comment data across major political events and news outlets.",
+        "Created structured comparisons across topics and media sources to support fair and context-aware analysis.",
+        "Used NLP techniques to translate behavioural and engagement patterns into measurable features.",
+        "Combined computational analysis with qualitative interpretation to study how media narratives and audience responses interact online."
+      ]
     }
   ],
   "references": [
