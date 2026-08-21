@@ -28,7 +28,6 @@ Built a distributed **client-server system in Python** using gRPC for communicat
 Designed and ran a systematic sensitivity study across varying batch sizes and Bloom filter capacities. Developed a decision framework for protocol selection based on observed crossover points and deployment parameters. Results establish empirical bounds on where each protocol is preferable.
 
 ## Links
-
 - **GitHub**: [obfi-implementation-and-empirical-analysis](https://github.com/rahil1303/obfi-implementation-and-empirical-analysis)
-- **Manuscript**: upcoming
-- **arXiv**: upcoming
+- **Manuscript**: [Zenodo](https://doi.org/10.5281/zenodo.22019435)
+- **PyPI**: [pyobfi](https://pypi.org/project/pyobfi/)
