@@ -41,7 +41,7 @@ I explore research questions by building and evaluating systems. My work has tak
 
 My experience across research, enterprise data systems, and university teaching has shaped how I work. I am drawn to interdisciplinary problems that demand technical rigour, practical judgement, and an understanding of real-world consequences.
 
-I am currently seeking **PhD opportunities in systems-oriented and interdisciplinary research**. If my interests connect with your work, feel free to [get in touch](mailto:officialthingsrahil@gmail.com).
+I am currently seeking **PhD opportunities in systems-oriented and interdisciplinary research**. If my interests connect with your work, feel free to [get in touch](mailto:rahil.research@gmail.com).
 
 <!--
 Selected work: add 2–3 entries here once project pages exist. One line each, linked. For example:
