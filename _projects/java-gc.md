@@ -28,6 +28,5 @@ How do Java garbage collection strategies differ in energy efficiency and runtim
 Identified measurable crossover points between GC strategies depending on workload characteristics, with quantitative analysis establishing trade-offs between throughput, latency, and energy consumption relevant to sustainable systems design.
 
 ## Links
-
-- **GitHub**: [Energy-Efficiency-of-Java-Garbage-Collection-Strategies](https://github.com/rahil1303/gc-energy-efficiency)
-- **arXiv**: upcoming
+- **GitHub**: [gc-energy-efficiency](https://github.com/rahil1303/gc-energy-efficiency)
+- **arXiv**: [2608.19520](https://arxiv.org/abs/2608.19520)
