@@ -1,0 +1,315 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game | Rahil Sharma </title> <meta name="author" content="Rahil Sharma"> <meta name="description" content="A summary of my paper design exercise on securing brain-computer interfaces connected to large AI systems, with a layered defence and a Stackelberg game model, and an honest note on what it leaves unproven."> <meta name="keywords" content="privacy-preserving systems, cryptography, oblivious protocols, explainable AI, knowledge graphs, fraud detection, agentic AI, LLMs, RAG, NLP, sociotechnical systems, empirical methods, sustainability, trustworthy AI"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://rahil1303.github.io/blog/2026/brain-computer-interface-security/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Rahil</span> Sharma </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item "> <a class="nav-link" href="/personal/">personal </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/books/">bookshelf</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game</h1> <p class="post-meta"> Created on October 07, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/tag/security"> <i class="fa-solid fa-hashtag fa-sm"></i> security</a>   <a href="/blog/tag/machine-learning"> <i class="fa-solid fa-hashtag fa-sm"></i> machine-learning</a>   <a href="/blog/tag/privacy"> <i class="fa-solid fa-hashtag fa-sm"></i> privacy</a>   <a href="/blog/tag/game-theory"> <i class="fa-solid fa-hashtag fa-sm"></i> game-theory</a>   ·   <a href="/blog/category/research-notes"> <i class="fa-solid fa-tag fa-sm"></i> research-notes</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>For an MSc course on security and machine learning, I was asked to think about security for large-scale AI infrastructure, and I picked a deliberately forward-looking case: a brain-computer interface (BCI) connected to a powerful AI system. This was a design exercise, not an experiment. This post summarises the threat model, the layered defence I proposed, and the game-theoretic model, and says plainly what is speculative.</p> <h3 id="why-this-case">Why this case</h3> <p>Neural signals are about as personal as data gets, and a BCI closes the loop: signals go to a model, and the model’s output acts on the world or on the person. That makes both privacy and integrity matter. I used “AGI” loosely in the report. Nothing in the design depends on it, and the same reasoning applies to any large model sitting behind a neural interface.</p> <h3 id="threats-i-collected">Threats I collected</h3> <ul> <li> <strong>Privacy:</strong> model inversion and membership inference (reconstructing or detecting training data from a model), eavesdropping on wireless neural signals, and poisoned data in federated training.</li> <li> <strong>Integrity:</strong> backdoors planted in the model, adversarial inputs crafted to flip an output, and a small group of malicious clients skewing a federated model.</li> <li> <strong>Trust:</strong> models that cannot be explained in real time, and biases inherited from training data.</li> <li> <strong>Deployment:</strong> the latency of heavy cryptography, unclear regulation about who owns neural data, and the larger attack surface of many devices and clouds.</li> </ul> <h3 id="the-layered-defence">The layered defence</h3> <p>I proposed a pipeline where each stage addresses a different class of threat:</p> <ol> <li> <strong>Identity check</strong> with a zero-knowledge proof, so the system can verify the user without learning secrets.</li> <li> <strong>Protect the data</strong> with homomorphic encryption or differential privacy before it reaches the model.</li> <li> <strong>Train and process with federated learning</strong> and adversarial defences.</li> <li> <strong>Detect poisoning or backdoors</strong> and roll back to a safe model state if something looks wrong.</li> <li> <strong>Log verified model updates</strong> on a tamper-evident ledger so they can be audited.</li> </ol> <h3 id="the-game-theoretic-model">The game-theoretic model</h3> <p>I modelled the defender and attacker as a Stackelberg game: the defender commits to a security strategy S first, and the attacker observes it and chooses the attack that is best for them. With a cost function for the defender and a payoff for the attacker, the defender wants a strategy S* that minimises their own cost given the attacker’s best response a*(S):</p> <p>S* is in the argmin over S of C_D(S, a<em>(S)), where a</em>(S) is in the argmax over attacks a of U_A(a, S).</p> <p>Since the defender does not know which type of attacker they face (a data poisoner, a backdoor planter, a model inverter), I extended it to a Bayesian game where costs are averaged over a probability distribution of attacker types, which the defender can update as evidence arrives. (In my original report the equilibrium expression was written loosely and did not define the attacker’s best response. The version above is what it should have said.)</p> <h3 id="what-i-understood">What I understood</h3> <ul> <li>Defences do not stack for free. Each layer adds latency, cost and new things to trust.</li> <li>Game theory is useful as a discipline for stating assumptions: who moves first, who knows what, what each side can afford. It is far less useful for producing numbers unless the payoffs are estimated from data, and I had none.</li> <li>A “blockchain for audit” is easy to draw and hard to justify without saying what exactly is logged, who can write to it, and how it stays private.</li> </ul> <h3 id="what-the-design-does-not-show">What the design does not show</h3> <p>This was never tested. Fully homomorphic encryption and zero-knowledge proofs are, today, too slow for real-time neural control, as I noted in the report itself. The framework is a way to organise the problem, not evidence that it works, and the next step would be a prototype on a simulated neural signal pipeline with measured latency for each layer.</p> <h3 id="references">References</h3> <ul> <li>Kairouz et al. Advances and Open Problems in Federated Learning. Foundations and Trends in Machine Learning, 2021.</li> <li>Fredrikson, Jha, Ristenpart. Model Inversion Attacks that Exploit Confidence Information and Basic Countermeasures. CCS, 2015.</li> <li>Madry, Makelov, Schmidt, Tsipras, Vladu. Towards Deep Learning Models Resistant to Adversarial Attacks. ICLR, 2018.</li> <li>Dwork, McSherry, Nissim, Smith. Calibrating Noise to Sensitivity in Private Data Analysis. TCC, 2006.</li> <li>Doshi-Velez and Kim. Towards a Rigorous Science of Interpretable Machine Learning. arXiv:1702.08608, 2017.</li> </ul> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/undetectable-backdoors-experiment/">Undetectable Backdoors in ML - The Theory, My Small Experiment, and What It Did Not Show</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/traffic-analysis-attacks-tor/">Traffic Analysis Attacks on Tor - What I Read and What I Took From It</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/federated-learning-who-holds-the-keys/">Federated Learning and the Question of Who Holds the Keys</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/expert-systems-xai-hybrid/">Expert Systems Meet Explainable AI - A Hybrid Detector and a Rough Energy Experiment</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/statistical-tests-worked-examples/">Choosing a Statistical Test in Practice - Worked Examples</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/statistical-test-decision-tree/">Choosing the Right Statistical Test - A Core Decision Tree</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/efficient-accountable-mpc/">Making Secure Multi-Party Computation Practical -- A Literature Survey</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Rahil Sharma. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: October 29, 2026. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Preprints and work in progress.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Systems built across privacy-preserving computation, explainable AI, and sociotechnical computing.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-teaching",
+          title: "teaching",
+          description: "Graduate teaching assistant across VU Amsterdam and University of Twente, 2024–2026.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "nav-personal",
+          title: "personal",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/personal/";
+          },
+        },{id: "dropdown-bookshelf",
+              title: "bookshelf",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/books/";
+              },
+            },{id: "dropdown-blog",
+              title: "blog",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-undetectable-backdoors-in-ml-the-theory-my-small-experiment-and-what-it-did-not-show",
+        
+          title: "Undetectable Backdoors in ML - The Theory, My Small Experiment, and What It...",
+        
+        description: "A summary of the undetectable backdoors paper, a CIFAR-10 experiment I ran on backdoor persistence, and an honest look at what that experiment can and cannot support.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/undetectable-backdoors-experiment/";
+          
+        },
+      },{id: "post-traffic-analysis-attacks-on-tor-what-i-read-and-what-i-took-from-it",
+        
+          title: "Traffic Analysis Attacks on Tor - What I Read and What I Took...",
+        
+        description: "A summary of my reading on website fingerprinting, flow correlation and video fingerprinting, how raw traffic becomes model input, and why the base rate fallacy matters more than the architecture.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/traffic-analysis-attacks-tor/";
+          
+        },
+      },{id: "post-federated-learning-and-the-question-of-who-holds-the-keys",
+        
+          title: "Federated Learning and the Question of Who Holds the Keys",
+        
+        description: "A summary of my reading on federated learning, cryptographic protections, algorithmic bias and governance, framed by Rogaway's argument that cryptographic work is never ethically neutral.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/federated-learning-who-holds-the-keys/";
+          
+        },
+      },{id: "post-expert-systems-meet-explainable-ai-a-hybrid-detector-and-a-rough-energy-experiment",
+        
+          title: "Expert Systems Meet Explainable AI - A Hybrid Detector and a Rough Energy...",
+        
+        description: "A summary of my reading on expert systems and explainable AI, the hybrid intrusion detection design I proposed, a small energy comparison, and what I would tighten.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/expert-systems-xai-hybrid/";
+          
+        },
+      },{id: "post-thinking-about-security-for-brain-computer-interfaces-a-threat-model-and-a-game",
+        
+          title: "Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game...",
+        
+        description: "A summary of my paper design exercise on securing brain-computer interfaces connected to large AI systems, with a layered defence and a Stackelberg game model, and an honest note on what it leaves unproven.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/brain-computer-interface-security/";
+          
+        },
+      },{id: "post-choosing-a-statistical-test-in-practice-worked-examples",
+        
+          title: "Choosing a Statistical Test in Practice - Worked Examples",
+        
+        description: "A companion to the decision tree post. Seven concrete situations, each walked through the three steps and paired with the Python call that runs the test.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/statistical-tests-worked-examples/";
+          
+        },
+      },{id: "post-choosing-the-right-statistical-test-a-core-decision-tree",
+        
+          title: "Choosing the Right Statistical Test - A Core Decision Tree",
+        
+        description: "A working decision tree for picking a hypothesis test, from the type of outcome variable to normality checks, p-values, and a lookup table of tests for numeric and categorical data.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/statistical-test-decision-tree/";
+          
+        },
+      },{id: "post-making-secure-multi-party-computation-practical-a-literature-survey",
+        
+          title: "Making Secure Multi-Party Computation Practical -- A Literature Survey",
+        
+        description: "Notes on where the overhead in MPC actually comes from, and four recent lines of work that try to remove it without giving up the security guarantees.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/efficient-accountable-mpc/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-a-long-announcement-with-details",
+          title: 'A long announcement with details',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_2/";
+            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
+          title: 'A simple inline announcement with Markdown emoji! <img class="emoji" title=":sparkles:" alt=":sparkles:" src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png" height="20" width="20"> <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">',
+          description: "",
+          section: "News",},{id: "news-started-building-fraudgraph-amp-mdash-a-knowledge-graph-native-fraud-detection-system-with-agentic-investigation-and-shap-explainability",
+          title: 'Started building **FraudGraph** &amp;mdash; a knowledge-graph-native fraud detection system with agentic investigation and...',
+          description: "",
+          section: "News",},{id: "projects-adaptive-ai-interaction-amp-reasoning-platform",
+          title: 'Adaptive AI Interaction &amp; Reasoning Platform',
+          description: "Multi-model RAG platform supporting structured evaluation of reasoning quality across LLM families",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/adaptive-ai/";
+            },},{id: "projects-auditable-financial-fraud-detection-graph-features-amp-agentic-investigation",
+          title: 'Auditable Financial Fraud Detection: Graph Features &amp; Agentic Investigation',
+          description: "End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and human-in-the-loop governance",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/fraud-detection/";
+            },},{id: "projects-energy-performance-trade-offs-of-java-garbage-collection-strategies",
+          title: 'Energy–Performance Trade-offs of Java Garbage Collection Strategies',
+          description: "Quantitative empirical study comparing GC strategies under controlled workloads using statistical analysis",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/java-gc/";
+            },},{id: "projects-obfi-implementation-empirical-analysis-and-crossover-characterization-of-competing-protocols",
+          title: 'OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols',
+          description: "Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/obfi/";
+            },},{id: "projects-explainable-ai-framework-for-privacy-aware-feature-attribution",
+          title: 'Explainable AI Framework for Privacy-Aware Feature Attribution',
+          description: "Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/pacshap/";
+            },},{id: "projects-reactivity-reflectivity-vector-framework",
+          title: 'Reactivity–Reflectivity Vector Framework',
+          description: "Computational framework studying political polarization, media framing, and audience reactivity using large-scale YouTube data",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/reactivity/";
+            },},{id: "teachings-project-collective-intelligence",
+          title: 'Project Collective Intelligence',
+          description: "Swarm Intelligence & Multi-Agent Systems · VU Amsterdam · 2x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/collective-intelligence/";
+            },},{id: "teachings-creative-technology-programme",
+          title: 'Creative Technology Programme',
+          description: "AI, ML, Programming & Hardware · University of Twente",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/creative-technology/";
+            },},{id: "teachings-fairness-in-data-science",
+          title: 'Fairness in Data Science',
+          description: "CreaTe Module 5 — Humane by Design · University of Twente",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/fairness-data-science/";
+            },},{id: "teachings-learning-machines",
+          title: 'Learning Machines',
+          description: "Robotics & Python Programming · VU Amsterdam · 3x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/learning-machines/";
+            },},{id: "teachings-text-mining-for-ai",
+          title: 'Text Mining for AI',
+          description: "NLP & Information Retrieval · VU Amsterdam · 3x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/text-mining/";
+            },},{id: "teachings-bachelor-thesis-supervision",
+          title: 'Bachelor Thesis Supervision',
+          description: "Software Asset Management · VU Amsterdam",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/thesis-supervision/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-inspire',
+        title: 'Inspire HEP',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://inspirehep.net/authors/1010907", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-custom_social',
+        title: 'Custom_social',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.alberteinstein.com/", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

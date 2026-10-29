@@ -35,7 +35,7 @@
          <span class="p">[</span><span class="n">no_then_yes</span><span class="p">,</span> <span class="n">both_no</span><span class="p">]]</span>
 <span class="nf">mcnemar</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </code></pre></div></div> <p><strong>Goodness of fit to a distribution:</strong> does the observed distribution of counts match what you expected?</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stats</span><span class="p">.</span><span class="nf">chisquare</span><span class="p">(</span><span class="n">f_obs</span><span class="o">=</span><span class="n">observed_counts</span><span class="p">,</span> <span class="n">f_exp</span><span class="o">=</span><span class="n">expected_counts</span><span class="p">)</span>
-</code></pre></div></div> <h3 id="one-more-thing-to-report">One more thing to report</h3> <p>A p-value says whether an effect is detectable, not how large it is. Alongside any of these tests, report an effect size and a confidence interval, such as the difference in means, so that a tiny effect in a large sample is not mistaken for an important one.</p> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/statistical-test-decision-tree/">Choosing the Right Statistical Test - A Core Decision Tree</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/efficient-accountable-mpc/">Making Secure Multi-Party Computation Practical -- A Literature Survey</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Rahil Sharma. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: October 06, 2026. </div> </footer> <script>
+</code></pre></div></div> <h3 id="one-more-thing-to-report">One more thing to report</h3> <p>A p-value says whether an effect is detectable, not how large it is. Alongside any of these tests, report an effect size and a confidence interval, such as the difference in means, so that a tiny effect in a large sample is not mistaken for an important one.</p> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/undetectable-backdoors-experiment/">Undetectable Backdoors in ML - The Theory, My Small Experiment, and What It Did Not Show</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/traffic-analysis-attacks-tor/">Traffic Analysis Attacks on Tor - What I Read and What I Took From It</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/federated-learning-who-holds-the-keys/">Federated Learning and the Question of Who Holds the Keys</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/expert-systems-xai-hybrid/">Expert Systems Meet Explainable AI - A Hybrid Detector and a Rough Energy Experiment</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/brain-computer-interface-security/">Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/statistical-test-decision-tree/">Choosing the Right Statistical Test - A Core Decision Tree</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/efficient-accountable-mpc/">Making Secure Multi-Party Computation Practical -- A Literature Survey</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Rahil Sharma. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: October 29, 2026. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
@@ -109,7 +109,62 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-choosing-a-statistical-test-in-practice-worked-examples",
+            },{id: "post-undetectable-backdoors-in-ml-the-theory-my-small-experiment-and-what-it-did-not-show",
+        
+          title: "Undetectable Backdoors in ML - The Theory, My Small Experiment, and What It...",
+        
+        description: "A summary of the undetectable backdoors paper, a CIFAR-10 experiment I ran on backdoor persistence, and an honest look at what that experiment can and cannot support.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/undetectable-backdoors-experiment/";
+          
+        },
+      },{id: "post-traffic-analysis-attacks-on-tor-what-i-read-and-what-i-took-from-it",
+        
+          title: "Traffic Analysis Attacks on Tor - What I Read and What I Took...",
+        
+        description: "A summary of my reading on website fingerprinting, flow correlation and video fingerprinting, how raw traffic becomes model input, and why the base rate fallacy matters more than the architecture.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/traffic-analysis-attacks-tor/";
+          
+        },
+      },{id: "post-federated-learning-and-the-question-of-who-holds-the-keys",
+        
+          title: "Federated Learning and the Question of Who Holds the Keys",
+        
+        description: "A summary of my reading on federated learning, cryptographic protections, algorithmic bias and governance, framed by Rogaway's argument that cryptographic work is never ethically neutral.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/federated-learning-who-holds-the-keys/";
+          
+        },
+      },{id: "post-expert-systems-meet-explainable-ai-a-hybrid-detector-and-a-rough-energy-experiment",
+        
+          title: "Expert Systems Meet Explainable AI - A Hybrid Detector and a Rough Energy...",
+        
+        description: "A summary of my reading on expert systems and explainable AI, the hybrid intrusion detection design I proposed, a small energy comparison, and what I would tighten.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/expert-systems-xai-hybrid/";
+          
+        },
+      },{id: "post-thinking-about-security-for-brain-computer-interfaces-a-threat-model-and-a-game",
+        
+          title: "Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game...",
+        
+        description: "A summary of my paper design exercise on securing brain-computer interfaces connected to large AI systems, with a layered defence and a Stackelberg game model, and an honest note on what it leaves unproven.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/brain-computer-interface-security/";
+          
+        },
+      },{id: "post-choosing-a-statistical-test-in-practice-worked-examples",
         
           title: "Choosing a Statistical Test in Practice - Worked Examples",
         
