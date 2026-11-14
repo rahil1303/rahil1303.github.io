@@ -23,7 +23,10 @@ profile:
       <a href="https://orcid.org/0009-0006-7759-8030" title="ORCID" target="_blank"><i class="ai ai-orcid"></i></a>
     </p>
 
-news: true
+announcements:
+  enabled: true
+  scrollable: true
+  limit: 5
 selected_papers: false
 social: false
 ---
