@@ -105,6 +105,12 @@ Selected work: add 2–3 entries here once project pages exist. One line each, l
         <span class="sw-tag">sustainability</span><span class="sw-tag">energy efficiency</span><span class="sw-tag">systems performance</span><span class="sw-tag">empirical methods</span>
       </div>
     </div>
+      <div class="sw-card">
+      <a href="/projects/explicit-gc/">The Marginal Value of Explicit Garbage Collection: Cadence, Reclamation, and Cost</a>
+      <div class="sw-tags">
+        <span class="sw-tag">garbage collection</span><span class="sw-tag">JVM</span><span class="sw-tag">energy efficiency</span><span class="sw-tag">empirical methods</span>
+      </div>
+    </div>
   </div>
   <div class="sw-group">
     <div class="sw-label">Reasoning about trade-offs under constraints</div>
