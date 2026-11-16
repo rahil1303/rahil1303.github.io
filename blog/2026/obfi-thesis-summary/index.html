@@ -1,0 +1,326 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> MSc Thesis Summary - Oblivious Bloom Filter Insertion | Rahil Sharma </title> <meta name="author" content="Rahil Sharma"> <meta name="description" content="A summary of my MSc thesis on implementing and empirically comparing OBFI and WS12, two protocols for inserting into an encrypted Bloom filter without leaking access patterns."> <meta name="keywords" content="privacy-preserving systems, cryptography, oblivious protocols, explainable AI, knowledge graphs, fraud detection, agentic AI, LLMs, RAG, NLP, sociotechnical systems, empirical methods, sustainability, trustworthy AI"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://rahil1303.github.io/blog/2026/obfi-thesis-summary/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Rahil</span> Sharma </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item "> <a class="nav-link" href="/personal/">personal </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/books/">bookshelf</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">MSc Thesis Summary - Oblivious Bloom Filter Insertion</h1> <p class="post-meta"> Created on November 16, 2026 </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/tag/cryptography"> <i class="fa-solid fa-hashtag fa-sm"></i> cryptography</a>   <a href="/blog/tag/oblivious-protocols"> <i class="fa-solid fa-hashtag fa-sm"></i> oblivious-protocols</a>   <a href="/blog/tag/privacy"> <i class="fa-solid fa-hashtag fa-sm"></i> privacy</a>   <a href="/blog/tag/distributed-systems"> <i class="fa-solid fa-hashtag fa-sm"></i> distributed-systems</a>   ·   <a href="/blog/category/research-notes"> <i class="fa-solid fa-tag fa-sm"></i> research-notes</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p><strong>Oblivious Bloom Filter Insertion: Implementation, Empirical Analysis, and Crossover Characterisation of Competing Protocols</strong></p> <table> <tbody> <tr> <td>Rahil S</td> <td>MSc Computer Science, Vrije Universiteit Amsterdam &amp; University of Amsterdam</td> <td> </td> </tr> <tr> <td>CWI Amsterdam</td> <td>Supervisor: Marten van Dijk</td> <td>2026</td> </tr> <tr> <td><a href="https://doi.org/10.5281/zenodo.22019435" rel="external nofollow noopener" target="_blank">doi.org/10.5281/zenodo.22019435</a></td> <td><a href="/assets/pdf/OBFI_Thesis_Summary.pdf">Summary (PDF)</a></td> <td> </td> </tr> </tbody> </table> <h3 id="the-research-question">The Research Question</h3> <p>The central question of this thesis was whether the theoretical efficiency of oblivious Bloom filter insertion protocols could be realised in practice, and under what conditions one construction would outperform another. More specifically, could restricting oblivious computation to the elements being inserted, rather than a structure proportional to the entire filter capacity, preserve the same security requirements while substantially reducing computational cost? Answering this required moving beyond asymptotic complexity analysis to understand how these cryptographic constructions behave in actual distributed systems. The study therefore brought together theoretical computer science, applied cryptography, distributed systems engineering, and empirical performance evaluation.</p> <h3 id="implementation-and-research-artifact">Implementation and Research Artifact</h3> <p>This research focused on identifying computational bottlenecks in privacy-preserving client-server systems, using a mathematical occupancy bound (Lemma 1) and a novel primitive, Oblivious Bucket Distribution (OBD). As neither OBFI nor WS12 had previously been implemented in a documented working system, both protocols had to be built from scratch, translating their theoretical specifications into executable code through first-principles reasoning. We developed a shared distributed framework in Python using gRPC, encrypted storage, and oblivious sorting to evaluate both protocols. Data Analysis of recorded data was done using R! The implementation was also released as a Python library, <em>pyobfi</em>, to support reproducibility and further research.</p> <h3 id="the-idea-behind-the-research">The Idea Behind the Research</h3> <p>Over the past two decades, the growing adoption of cloud computing and outsourced storage has changed how organisations manage and process information. While these systems offer scalability and flexibility, they also introduce an important security question: how can sensitive information remain private when it is stored and processed on infrastructure that its owner does not fully control?</p> <p>Encryption offers one layer of protection by concealing the contents of the data, but it does not necessarily conceal how that data is accessed or modified. Consider, for example, a hospital storing encrypted patient records on an external server. An observer might not be able to read a single medical record, but by examining which records are accessed, how often, and the patterns between successive queries, they could potentially infer sensitive information about groups of patients, such as the prevalence of a particular condition within a community. Such information could then be exploited for profiling, discrimination, or targeted attacks. This is the problem of access-pattern leakage, where the behaviour of a system reveals information that encryption was intended to protect.</p> <p>This problem is particularly interesting in the context of Bloom filters, which are space-efficient, probabilistic data structures used to test whether an element belongs to a set. When a Bloom filter is stored on an untrusted server, even encrypting its contents may not be enough to preserve privacy. Bloom filters provided a useful starting point for this research because of their compact representation and efficient membership queries, allowing us to investigate the practical costs of protecting access patterns in a well-defined setting. While this thesis focuses specifically on Bloom filter insertion, the broader questions it raises about privacy, correctness, and performance could also be explored in other data structures, such as arrays and linked lists.</p> <h3 id="challenges-and-approach">Challenges and Approach</h3> <p>This project was governed by two important conditions. First, Obliviousness: throughout the insertion process, the server must not learn which elements are being inserted or which positions are accessed or modified. It may only learn the size of each insertion batch. Second, bounded client storage: the client has very limited local memory, while the server provides the storage needed to maintain the encrypted data structure. This reflects the practical reality of outsourcing data to external infrastructure. The challenge was therefore to preserve access-pattern privacy without requiring the client to store or process the entire data structure locally.</p> <p>This problem was previously addressed by Williams and Sion in 2012 through a protocol referred to as WS12, which uses oblivious sorting to conceal the positions being updated. However, an important limitation of this approach is that its sorting operation scales with the capacity of the entire Bloom filter, rather than just the elements being inserted. For example, consider a filter designed to accommodate one million elements, but receiving only a thousand new elements in a particular batch. WS12 must still sort a structure containing records representing segments of the much larger filter, alongside the incoming elements. This becomes particularly problematic in practical systems, where data structures are often provisioned to accommodate large datasets and future growth, while individual updates involve only a small fraction of that capacity. As the filter capacity increases, so does the computational overhead, regardless of how small the insertion batch may be. This raises an interesting question: could we preserve the same privacy guarantees while restricting the expensive oblivious computation to the incoming batch instead?</p> <p>This question led to the introduction of Oblivious Bloom Filter Insertion (OBFI), a newer protocol built around two novel contributions. The first is a mathematical property that allows us to determine, with high probability, an upper bound on how many elements can occupy a given region of an array. The second is a novel subprotocol called Oblivious Bucket Distribution (OBD), which uses this bound to distribute incoming elements into fixed-size buckets, padding any unused spaces with dummy elements so that every bucket appears identical to the server. Together, these two contributions allow OBFI to organise and obliviously sort only the incoming batch, rather than a structure proportional to the entire filter capacity, while preserving access-pattern privacy and bounded client storage.</p> <h3 id="implementation-and-results">Implementation and Results</h3> <p>The central question of my MSc thesis was whether the architectural difference between WS12’s capacity-wide sorting and OBFI’s batch-local sorting would translate into measurable performance improvements, at what point one protocol would outperform the other, and under what conditions. To investigate this, I implemented both protocols in Python within a shared client-server framework, using gRPC for communication and cryptographic primitives for encrypted storage and oblivious operations. Translating the mathematical specifications into working systems required developing clear logical execution flows, mapping pseudocode to executable components, and resolving several implementation details that were not fully specified in the original protocols. By standardising the underlying oblivious sorting algorithm and evaluating both approaches under identical infrastructure, I established a controlled experimental environment in which the impact of their architectural differences could be measured independently of implementation choices.</p> <p>The experiments confirmed that WS12’s runtime increased with filter capacity, while OBFI’s remained largely independent of it. The crossover occurred when the insertion batch represented approximately 5–25% of the filter’s element capacity, with OBFI performing better for smaller batches and WS12 becoming competitive for larger ones. At the widest tested separation, OBFI was <strong>16.1× faster</strong> than WS12. Correctness tests also showed zero false negatives and a false-positive rate below 1%.</p> <h3 id="conclusions-and-reflections">Conclusions and Reflections</h3> <p>Using measurements collected across different protocol phases, we developed an empirical cost model to explain performance differences and estimate when one protocol would outperform the other. More importantly, the research demonstrated that stronger privacy guarantees need not come at the expense of practical performance, provided we reconsider how computation is organised. Together, the experimental data and cost model provide a foundation for evaluating future designs and exploring similar approaches in other privacy-preserving data structures.</p> <h3 id="links">Links</h3> <ul> <li> <strong>Full thesis</strong>: <a href="https://doi.org/10.5281/zenodo.22019435" rel="external nofollow noopener" target="_blank">Zenodo</a> </li> <li> <strong>Summary</strong>: <a href="/assets/pdf/OBFI_Thesis_Summary.pdf">PDF</a> </li> <li> <strong>Code</strong>: <a href="https://github.com/rahil1303/obfi-implementation-and-empirical-analysis" rel="external nofollow noopener" target="_blank">obfi-implementation-and-empirical-analysis</a> </li> <li> <strong>Library</strong>: <a href="https://pypi.org/project/pyobfi/" rel="external nofollow noopener" target="_blank">pyobfi on PyPI</a> </li> <li> <strong>Project page</strong>: <a href="/projects/obfi/">OBFI</a> </li> </ul> </div> </article> <br> <hr> <br> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <ul class="list-disc pl-7 my-3 space-y-2 marker:text-[var(--global-theme-color)]"> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/undetectable-backdoors-experiment/">Undetectable Backdoors in ML - The Theory, My Small Experiment, and What It Did Not Show</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/traffic-analysis-attacks-tor/">Traffic Analysis Attacks on Tor - What I Read and What I Took From It</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/federated-learning-who-holds-the-keys/">Federated Learning and the Question of Who Holds the Keys</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/expert-systems-xai-hybrid/">Expert Systems Meet Explainable AI - A Hybrid Detector and a Rough Energy Experiment</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/brain-computer-interface-security/">Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/statistical-tests-worked-examples/">Choosing a Statistical Test in Practice - Worked Examples</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/statistical-test-decision-tree/">Choosing the Right Statistical Test - A Core Decision Tree</a> </li> <li class="leading-relaxed"> <a class="underline decoration-1 hover:text-[var(--global-hover-color)]" href="/blog/2026/efficient-accountable-mpc/">Making Secure Multi-Party Computation Practical -- A Literature Survey</a> </li> </ul> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Rahil Sharma. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: November 16, 2026. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Preprints and work in progress.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Systems built across privacy-preserving computation, explainable AI, and sociotechnical computing.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-teaching",
+          title: "teaching",
+          description: "Graduate teaching assistant across VU Amsterdam and University of Twente, 2024–2026.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "nav-personal",
+          title: "personal",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/personal/";
+          },
+        },{id: "dropdown-bookshelf",
+              title: "bookshelf",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/books/";
+              },
+            },{id: "dropdown-blog",
+              title: "blog",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/blog/";
+              },
+            },{id: "post-msc-thesis-summary-oblivious-bloom-filter-insertion",
+        
+          title: "MSc Thesis Summary - Oblivious Bloom Filter Insertion",
+        
+        description: "A summary of my MSc thesis on implementing and empirically comparing OBFI and WS12, two protocols for inserting into an encrypted Bloom filter without leaking access patterns.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/obfi-thesis-summary/";
+          
+        },
+      },{id: "post-undetectable-backdoors-in-ml-the-theory-my-small-experiment-and-what-it-did-not-show",
+        
+          title: "Undetectable Backdoors in ML - The Theory, My Small Experiment, and What It...",
+        
+        description: "A summary of the undetectable backdoors paper, a CIFAR-10 experiment I ran on backdoor persistence, and an honest look at what that experiment can and cannot support.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/undetectable-backdoors-experiment/";
+          
+        },
+      },{id: "post-traffic-analysis-attacks-on-tor-what-i-read-and-what-i-took-from-it",
+        
+          title: "Traffic Analysis Attacks on Tor - What I Read and What I Took...",
+        
+        description: "A summary of my reading on website fingerprinting, flow correlation and video fingerprinting, how raw traffic becomes model input, and why the base rate fallacy matters more than the architecture.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/traffic-analysis-attacks-tor/";
+          
+        },
+      },{id: "post-federated-learning-and-the-question-of-who-holds-the-keys",
+        
+          title: "Federated Learning and the Question of Who Holds the Keys",
+        
+        description: "A summary of my reading on federated learning, cryptographic protections, algorithmic bias and governance, framed by Rogaway&#39;s argument that cryptographic work is never ethically neutral.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/federated-learning-who-holds-the-keys/";
+          
+        },
+      },{id: "post-expert-systems-meet-explainable-ai-a-hybrid-detector-and-a-rough-energy-experiment",
+        
+          title: "Expert Systems Meet Explainable AI - A Hybrid Detector and a Rough Energy...",
+        
+        description: "A summary of my reading on expert systems and explainable AI, the hybrid intrusion detection design I proposed, a small energy comparison, and what I would tighten.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/expert-systems-xai-hybrid/";
+          
+        },
+      },{id: "post-thinking-about-security-for-brain-computer-interfaces-a-threat-model-and-a-game",
+        
+          title: "Thinking About Security for Brain-Computer Interfaces - A Threat Model and a Game...",
+        
+        description: "A summary of my paper design exercise on securing brain-computer interfaces connected to large AI systems, with a layered defence and a Stackelberg game model, and an honest note on what it leaves unproven.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/brain-computer-interface-security/";
+          
+        },
+      },{id: "post-choosing-a-statistical-test-in-practice-worked-examples",
+        
+          title: "Choosing a Statistical Test in Practice - Worked Examples",
+        
+        description: "A companion to the decision tree post. Seven concrete situations, each walked through the three steps and paired with the Python call that runs the test.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/statistical-tests-worked-examples/";
+          
+        },
+      },{id: "post-choosing-the-right-statistical-test-a-core-decision-tree",
+        
+          title: "Choosing the Right Statistical Test - A Core Decision Tree",
+        
+        description: "A working decision tree for picking a hypothesis test, from the type of outcome variable to normality checks, p-values, and a lookup table of tests for numeric and categorical data.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/statistical-test-decision-tree/";
+          
+        },
+      },{id: "post-making-secure-multi-party-computation-practical-a-literature-survey",
+        
+          title: "Making Secure Multi-Party Computation Practical -- A Literature Survey",
+        
+        description: "Notes on where the overhead in MPC actually comes from, and four recent lines of work that try to remove it without giving up the security guarantees.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/efficient-accountable-mpc/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-my-paper-toward-auditable-fraud-detection-combining-graph-features-model-explanations-and-agentic-case-investigation-was-accepted-at-the-pre-icis-sigdsa-symposium-2026-i-will-present-it-in-lisbon-on-december-12-13-2026-arxiv-https-arxiv-org-abs-2607-19266",
+          title: 'My paper **Toward Auditable Fraud Detection: Combining Graph Features, Model Explanations, and Agentic...',
+          description: "",
+          section: "News",},{id: "news-submitted-my-paper-do-garbage-collector-energy-rankings-generalize-a-controlled-study-of-java-workloads-and-jdks-to-the-greens-2027-workshop-co-located-with-icse-2027-an-earlier-version-is-on-arxiv-https-arxiv-org-abs-2608-19520",
+          title: 'Submitted my paper **Do Garbage-Collector Energy Rankings Generalize? A Controlled Study of Java...',
+          description: "",
+          section: "News",},{id: "projects-adaptive-ai-interaction-amp-reasoning-platform",
+          title: 'Adaptive AI Interaction &amp;amp; Reasoning Platform',
+          description: "Multi-model RAG platform supporting structured evaluation of reasoning quality across LLM families",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/adaptive-ai/";
+            },},{id: "projects-the-marginal-value-of-explicit-garbage-collection-cadence-reclamation-and-cost-across-java-workloads",
+          title: 'The Marginal Value of Explicit Garbage Collection: Cadence, Reclamation, and Cost Across Java...',
+          description: "Empirical study of when System.gc() requests pay off in reclamation, runtime, and energy across Java collectors and workloads",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/explicit-gc/";
+            },},{id: "projects-auditable-financial-fraud-detection-graph-features-amp-agentic-investigation",
+          title: 'Auditable Financial Fraud Detection: Graph Features &amp;amp; Agentic Investigation',
+          description: "End-to-end fraud detection pipeline with graph-based features, AI-assisted investigation, and human-in-the-loop governance",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/fraud-detection/";
+            },},{id: "projects-energy-performance-trade-offs-of-java-garbage-collection-strategies",
+          title: 'Energy–Performance Trade-offs of Java Garbage Collection Strategies',
+          description: "Quantitative empirical study comparing GC strategies under controlled workloads using statistical analysis",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/java-gc/";
+            },},{id: "projects-obfi-implementation-empirical-analysis-and-crossover-characterization-of-competing-protocols",
+          title: 'OBFI: Implementation, Empirical Analysis, and Crossover Characterization of Competing Protocols',
+          description: "Distributed implementation and empirical comparison of two cryptographic protocols for privacy-preserving computation",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/obfi/";
+            },},{id: "projects-explainable-ai-framework-for-privacy-aware-feature-attribution",
+          title: 'Explainable AI Framework for Privacy-Aware Feature Attribution',
+          description: "Privacy-aware feature selection combining SHAP values and knowledge graphs, aligned with GDPR data minimization",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/pacshap/";
+            },},{id: "projects-reactivity-reflectivity-vector-framework",
+          title: 'Reactivity–Reflectivity Vector Framework',
+          description: "Computational framework studying political polarization, media framing, and audience reactivity using large-scale YouTube data",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/reactivity/";
+            },},{id: "teachings-project-collective-intelligence",
+          title: 'Project Collective Intelligence',
+          description: "Swarm Intelligence &amp; Multi-Agent Systems · VU Amsterdam · 2x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/collective-intelligence/";
+            },},{id: "teachings-creative-technology-programme",
+          title: 'Creative Technology Programme',
+          description: "AI, ML, Programming &amp; Hardware · University of Twente",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/creative-technology/";
+            },},{id: "teachings-fairness-in-data-science",
+          title: 'Fairness in Data Science',
+          description: "CreaTe Module 5 — Humane by Design · University of Twente",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/fairness-data-science/";
+            },},{id: "teachings-learning-machines",
+          title: 'Learning Machines',
+          description: "Robotics &amp; Python Programming · VU Amsterdam · 3x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/learning-machines/";
+            },},{id: "teachings-text-mining-for-ai",
+          title: 'Text Mining for AI',
+          description: "NLP &amp; Information Retrieval · VU Amsterdam · 3x",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/text-mining/";
+            },},{id: "teachings-bachelor-thesis-supervision",
+          title: 'Bachelor Thesis Supervision',
+          description: "Software Asset Management · VU Amsterdam",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/thesis-supervision/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-inspire',
+        title: 'Inspire HEP',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://inspirehep.net/authors/1010907", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-custom_social',
+        title: 'Custom_social',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.alberteinstein.com/", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
